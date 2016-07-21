@@ -1,7 +1,7 @@
 import MyComponent from '../main'; // to demo direct API usage
 
 // When available on npm, consumer usage would be similar to:
-// import MyComponent from '@pearson-components/[component-name]'
+// import MyComponent from '@pearson-components/reader-notes'
 
 function init() {
 
