@@ -17,7 +17,7 @@
     }
   
     .notes-body {  
-        margin-top: 20px;
+        margin-top: 10px;
         
         .notes-content {
             position: relative;
@@ -32,6 +32,10 @@
                 background-color: #54DF48;
             }
             
+            .green-icon {
+                color: #54DF48;
+            }
+            
             .Pink {
                 background-color: #FB91CF;
             }
@@ -40,14 +44,31 @@
                 background-color: #FFD231;
             }
             
+            .yellow-icon {
+                color: #FFD231;
+            }
+            
             .Instructor {
                 background-color: #66FFFF;
             }
+            
             
             .note-row {
                 position: relative;
                 margin-left: 25px;
 
+                &:hover .edit,
+                &:hover .remove,                
+                &:active .edit,
+                &:active .remove {
+                    visibility: visible;
+                }
+
+                .clickable:focus + .edit,
+                .clickable:focus + .edit + .remove {
+                    visibility: visible;
+                }
+                
                 .color-dot {
                   position: absolute;
                   left: -25px;
@@ -66,6 +87,7 @@
                 }
 
                 .edit {
+                    visibility: hidden;
                     position: absolute;
                     padding: 10px;
                     right: 10px;
@@ -73,6 +95,7 @@
                     color: #666;
                 }
                 .remove {
+                    visibility: hidden;
                     position: absolute;
                     padding: 10px;
                     right: 10px;
@@ -85,7 +108,7 @@
                 .edit:focus,
                 .remove:focus,
                 .edit:active,
-                .remove:active {
+                .remove:active {                    
                     color: #000;
                     background-color: transparent;
                 }
@@ -102,6 +125,11 @@
                     color: #555;
                     margin-right: 5px;
                 }
+                
+                .user-note {                    
+                    border-top: 1px solid #DDD;
+                    padding-top: 5px;
+                }
             }
 
             .note-title {
@@ -114,12 +142,18 @@
                 color: #666;
                 font-size: 12px;
             }
+            
+            .text-toggle {
+                color: #666;
+                font-size: 12px;
+                float: right;
+            }
 
             a {
                 display: block;
                 position: relative;
                 cursor: pointer;
-                padding: 10px 40px 10px 0;
+                padding: 15px 45px 15px 0;
                 text-decoration: none;
                 color: inherit;
 

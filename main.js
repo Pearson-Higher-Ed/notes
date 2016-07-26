@@ -7,7 +7,8 @@ import './main.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ComponentOwner from './src/js/component-owner';
+//import ComponentOwner from './src/js/component-owner';
+import ReaderNotes from './src/js/reader-notes';
 
 // i18n, set up for French out-of-the-box
 import {addLocaleData, IntlProvider} from 'react-intl';
@@ -29,9 +30,16 @@ export default class MyComponent {
 
     const locale = config.locale ? config.locale : 'en';
 
+//    ReactDOM.render(
+//      <IntlProvider locale={locale} messages={translations[locale]}>
+//        <ComponentOwner data={config} />
+//      </IntlProvider>,
+//      document.getElementById(config.elementId)
+//    );
+     
     ReactDOM.render(
       <IntlProvider locale={locale} messages={translations[locale]}>
-        <ComponentOwner data={config} />
+        <ReaderNotes />
       </IntlProvider>,
       document.getElementById(config.elementId)
     );
@@ -42,4 +50,4 @@ export default class MyComponent {
 //
 // For events, use the Origami naming convention of pre-pending with 'o.'
 //
-document.body.addEventListener('o.InitMyComponent', e => new MyComponent(e.detail));
+//document.body.addEventListener('o.InitMyComponent', e => new MyComponent(e.detail));

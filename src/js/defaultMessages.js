@@ -13,5 +13,9 @@ export const messages = defineMessages({
     id: 'placeholder',
     description : 'this is a demo placeholder',
     defaultMessage: 'placeholder'
+  },
+  title: {
+    id: 'title',
+    defaultMessage: 'Highlights & Notes'
   }
 });

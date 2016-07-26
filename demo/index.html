@@ -6,107 +6,15 @@
     <link rel="stylesheet" type="text/css" href="elements.css">
 </head>
 <body>
-    <div id="notes" class="notes" role="main">
-        <div class="notes-header">
-            <h1 class="ng-binding">Highlights &amp; Notes</h1>                    
-        </div>
+    <div id="demo"></div>
     
-        <div class="notes-body">             
-            <div class="notes-content" ng-show="noteCtrl.notes.length">            
-                                    
-                <div id="21469257036459" class="note-row">
-                    <a href="javascript:void(0);" 
-                       class="clickable" ng-click="noteCtrl.goToNote(note)" 
-                       ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}" 
-                       tabindex="0">
-                        <span class="color-dot Pink" ng-class="note.colorLabel">
-                            <span class="reader-only" 
-                                  translate-value-color="Pink" 
-                                  translate="course.notes.NOTE_COLOR">
-                                Pink Highlight
-                            </span>
-                        </span>
-                        <div class="note-content">
-                            <time datetime="2016-07-22T23:57:16-0700" class="note-date">7/22/16 11:57 pm</time>
-                            <p>
-                                <strong class="ng-binding">Highlighted:</strong>
-                                <q>born in the United States or h</q>
-                            </p>
-                            <p><strong>Your Note: </strong>this is a pink note</p>
-                        </div>
-                    </a>
-                    <a href="javascript:void(0);" 
-                       tabindex="0" class="edit" 
-                       ng-click="noteCtrl.editNote(note, note.annotationId); $event.stopPropagation()" 
-                       ui-keypress="{'enter': 'noteCtrl.editNote(note, note.annotationId); $event.stopPropagation()'}" 
-                       aria-label="Edit highlight">
-                        <i class="pe-icon--info-circle"></i>
-                    </a>
-                    <a href="javascript:void(0);" 
-                       tabindex="0" class="remove" 
-                       ng-click="noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()" 
-                       ui-keypress="{'enter': 'noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()'}" 
-                       aria-label="Remove highlight">
-                        <i class="pe-icon--trash-o"></i>
-                    </a>
-                </div>
-                <div id="21469257045951" class="note-row">
-                    <a href="javascript:void(0);" class="clickable" ng-click="noteCtrl.goToNote(note)" ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}" tabindex="0">
-                        <span class="color-dot Green" ng-class="note.colorLabel">
-                            <span class="reader-only ng-scope" translate-value-color="Green" translate="course.notes.NOTE_COLOR">Green Highlight</span>
-                        </span>
-                        <div class="note-content">
-                            <time datetime="2016-07-22T23:57:25-0700" class="note-date ng-binding">7/22/16 11:57 pm</time>
-                            <p><strong class="ng-binding">Highlighted:</strong><q ng-bind-html="note.selectedText" class="ng-binding">oncept of having both a</q></p>
-                            <p ng-if="note.text" class="ng-binding ng-scope"><strong class="ng-binding">Your Note: </strong>this is a green note</p>
-                        </div>
-                    </a>
-                    <a ng-if="note.colorLabel != 'Instructor' || noteCtrl.enableCopy === 'true'" href="javascript:void(0);" tabindex="0" class="remove ng-scope" ng-click="noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()" ui-keypress="{'enter': 'noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()'}" aria-label="Remove highlight">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-                <div id="21469257056732" class="note-row">
-                    <a href="javascript:void(0);" class="clickable" ng-click="noteCtrl.goToNote(note)" ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}" tabindex="0">
-                        <span class="color-dot Yellow" ng-class="note.colorLabel">
-                            <span class="reader-only ng-scope" translate-value-color="Yellow" translate="course.notes.NOTE_COLOR">Yellow Highlight</span>
-                        </span>
-                        <div class="note-content">
-                            <time datetime="2016-07-22T23:57:36-0700" class="note-date ng-binding">7/22/16 11:57 pm</time>
-                            <p><strong class="ng-binding">Highlighted:</strong><q ng-bind-html="note.selectedText" class="ng-binding">what it means to be</q></p>
-                            <p ng-if="note.text" class="ng-binding ng-scope"><strong class="ng-binding">Your Note: </strong>this is a yellow note</p>
-                        </div>
-                    </a>
-                    <a ng-if="note.colorLabel != 'Instructor' || noteCtrl.enableCopy === 'true'" href="javascript:void(0);" tabindex="0" class="remove ng-scope" ng-click="noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()" ui-keypress="{'enter': 'noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()'}" aria-label="Remove highlight">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-                <div id="21469257071013" class="note-row">
-                    <a href="javascript:void(0);" class="clickable" ng-click="noteCtrl.goToNote(note)" ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}" tabindex="0">
-                        <span class="color-dot Green" ng-class="note.colorLabel">
-                            <span class="reader-only ng-scope" translate-value-color="Green" translate="course.notes.NOTE_COLOR">Green Highlight</span>
-                        </span>
-                        <div class="note-content">
-                            <time datetime="2016-07-22T23:57:51-0700" class="note-date ng-binding">7/22/16 11:57 pm</time>
-                            <p><strong class="ng-binding">Highlighted:</strong><q ng-bind-html="note.selectedText" class="ng-binding">mean to be “Amer</q></p>                                
-                        </div>
-                    </a>
-                    <a ng-if="note.colorLabel != 'Instructor' || noteCtrl.enableCopy === 'true'" href="javascript:void(0);" tabindex="0" class="remove ng-scope" ng-click="noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()" ui-keypress="{'enter': 'noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()'}" aria-label="Remove highlight">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-                   
-            </div>
-        </div>
-        <div id="notes-assert-container" role="alert" aria-live="assertive" class="reader-only"></div>
-    </div>
-    
-    <!-- Customize the demo for your component -->
+    <!-- Customize the demo for your component 
     <h1>Component Archetype Demo</h1>
     <p>Styled using the Elements SDK.</p>
     <br />
     <div id="demo-target1"></div>
     <br />
-    <div id="demo-target2"></div>
+    <div id="demo-target2"></div>-->
 
     <!-- External dependencies for React -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js"></script>
