@@ -1,4 +1,8 @@
 {
-  "buttonText": "dis bonjour",
-  "placeholder": "espace réservé"
+  "title": "Mise en évidence et notes",
+  "emptyMessage": "Lorsque vous ajoutez des notes ou mettez du texte en évidence, ils sont affichés ici.",
+  "showMore" : "montre plus",
+  "showLess" : "montre moins",
+  "highlighted" : "Mis en évidence : ",
+  "yourNote": "Votre note : "  
 }

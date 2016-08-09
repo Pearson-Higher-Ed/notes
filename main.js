@@ -1,53 +1,41 @@
-//
-// Change all references to 'MyComponent' in this file to your real component name!
-//
-
-// bundled component styling
 import './main.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import ComponentOwner from './src/js/component-owner';
-import ReaderNotes from './src/js/reader-notes';
+import NoteList from './src/js/reader-notes';
 
-// i18n, set up for French out-of-the-box
 import {addLocaleData, IntlProvider} from 'react-intl';
 import frLocaleData from 'react-intl/locale-data/fr';
 import frJson from './translations/fr.json';
+import nlLocaleData from 'react-intl/locale-data/nl';
+import nlJson from './translations/fr.json';
+import itLocaleData from 'react-intl/locale-data/it';
+import itJson from './translations/it.json';
+
 const translations = {
-  'fr' : frJson
+  'fr' : frJson,
+  'nl' : nlJson,
+  'it' : itJson
 };
 
-export default class MyComponent {
-
+export default class ReaderNotes {
+    
   constructor(config) {
-
     addLocaleData(frLocaleData);
+    addLocaleData(nlLocaleData);
+    addLocaleData(itLocaleData);
     this.init(config);
   }
-
+  
   init(config) {
-
     const locale = config.locale ? config.locale : 'en';
-
-//    ReactDOM.render(
-//      <IntlProvider locale={locale} messages={translations[locale]}>
-//        <ComponentOwner data={config} />
-//      </IntlProvider>,
-//      document.getElementById(config.elementId)
-//    );
-     
+    
     ReactDOM.render(
       <IntlProvider locale={locale} messages={translations[locale]}>
-        <ReaderNotes />
+        <NoteList notes={config.notes} />
       </IntlProvider>,
       document.getElementById(config.elementId)
     );
   }
-
+  
 }
-
-//
-// For events, use the Origami naming convention of pre-pending with 'o.'
-//
-//document.body.addEventListener('o.InitMyComponent', e => new MyComponent(e.detail));
