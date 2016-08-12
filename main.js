@@ -8,7 +8,7 @@ import {addLocaleData, IntlProvider} from 'react-intl';
 import frLocaleData from 'react-intl/locale-data/fr';
 import frJson from './translations/fr.json';
 import nlLocaleData from 'react-intl/locale-data/nl';
-import nlJson from './translations/fr.json';
+import nlJson from './translations/nl.json';
 import itLocaleData from 'react-intl/locale-data/it';
 import itJson from './translations/it.json';
 
