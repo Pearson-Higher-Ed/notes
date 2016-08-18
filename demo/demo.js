@@ -1,4 +1,4 @@
-import ReaderNotes from '../main';
+import NotesComponent from '../main';
 
 function getParameterByName(name, url) {
   if (!url) {
@@ -26,7 +26,7 @@ function init() {
  
   const locale = getParameterByName('locale');
   // Create new instance of notes component
-  new ReaderNotes({
+  new NotesComponent({
     elementId: 'notes-demo',    
     locale: locale,
     notes: mockData
