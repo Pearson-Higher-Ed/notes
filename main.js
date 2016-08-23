@@ -18,7 +18,7 @@ const translations = {
   'it' : itJson
 };
 
-export default class NotesComponent {
+export default class Notes {
     
   constructor(config) {
     addLocaleData(frLocaleData);

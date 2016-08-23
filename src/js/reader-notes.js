@@ -24,6 +24,7 @@ class NoteList extends React.Component {
   
   renderEmpty() {
     const {formatMessage} = this.props.intl;
+    
     return (
       <div className="empty-help" >
          <div className="empty-message" tabindex="0">
@@ -128,8 +129,7 @@ class Note extends React.Component {
     
     return (
       <div className="note-row">
-          <a href="javascript:void(0);" 
-             className="clickable"              
+          <a href="javascript:void(0);"              
              ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}" 
              tabindex="0">
               {this.renderIcon(commentExists)} 

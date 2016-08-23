@@ -1,4 +1,4 @@
-import NotesComponent from '../main';
+import Notes from '../main';
 
 function getParameterByName(name, url) {
   if (!url) {
@@ -25,8 +25,9 @@ function init() {
                     {id: 5, author: 'Shandy Miller', time: 86400000, text: 'This is the fifth notes highlighted text', comment: 'This is the fifth from the instructor', color: 'Instructor'}];   
  
   const locale = getParameterByName('locale');
+  
   // Create new instance of notes component
-  new NotesComponent({
+  new Notes({
     elementId: 'notes-demo',    
     locale: locale,
     notes: mockData
