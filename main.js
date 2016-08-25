@@ -2,14 +2,14 @@ import './main.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NoteList from './src/js/reader-notes';
+import ComponentOwner from './src/js/component-owner';
 
 import {addLocaleData, IntlProvider} from 'react-intl';
 import frLocaleData from 'react-intl/locale-data/fr';
-import frJson from './translations/fr.json';
 import nlLocaleData from 'react-intl/locale-data/nl';
-import nlJson from './translations/nl.json';
 import itLocaleData from 'react-intl/locale-data/it';
+import frJson from './translations/fr.json';
+import nlJson from './translations/nl.json';
 import itJson from './translations/it.json';
 
 const translations = {
@@ -18,8 +18,7 @@ const translations = {
   'it' : itJson
 };
 
-export default class Notes {
-    
+export default class Notes {    
   constructor(config) {
     addLocaleData(frLocaleData);
     addLocaleData(nlLocaleData);
@@ -32,10 +31,13 @@ export default class Notes {
     
     ReactDOM.render(
       <IntlProvider locale={locale} messages={translations[locale]}>
-        <NoteList notes={config.notes} />
+        <ComponentOwner notes={config.notes} />
       </IntlProvider>,
       document.getElementById(config.elementId)
     );
   }
   
+
 }
+// Listen for client events to initialize a new Notes component
+document.body.addEventListener('o.InitNotes', e => new Notes(e.detail));

@@ -1,195 +1,157 @@
-////
-/// Custom SCSS for component-specific styling goes here
-////
+// Demo styling
+#notes-demo-title {    
+  margin: 10px 0px 0px 20px;         
+}
+
+#notes-demo {
+  margin: 10px 20px 0px;
+}
+
+// Component-specific styling
 #notes {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  color: #716b7a;               
+  .notes-content {
     position: relative;
-    overflow: hidden;
-    background: #fff;
-    color: #716b7a; 
-    margin-top: 10px;  
-    padding-left: 15px;
-    padding-right: 15px;
-        
-    .notes-header {    
-        background-color: #fff;
-        z-index: 999;
-        clear:both;           
+    hr {
+      margin: 0;
+      margin-top: 5px;
+      border-top: 1px solid #D2D2D2;
     }
-  
-    .notes-body {  
-        margin-top: 10px;
-        
-        .notes-content {
-            position: relative;
-
-            hr {
-                margin: 0;
-                margin-top: 5px;
-                border-top: 1px solid #D2D2D2;
-            }
-
-            .Green {
-                background-color: #54DF48;
-            }
-            
-            .green-icon {
-                color: #54DF48;
-            }
-            
-            .Pink {
-                background-color: #FB91CF;
-            }
-            
-            .pink-icon {
-                color: #FB91CF;
-            }
-            
-            .Yellow {
-                background-color: #FFD231;
-            }
-            
-            .yellow-icon {
-                color: #FFD231;
-            }
-            
-            .Instructor {
-                background-color: #66FFFF;
-            }
-            
-            .instructor-icon {
-                color: #66FFFF;
-            }            
-            
-            .note-row {
-                position: relative;
-                margin-left: 25px;
-
-                &:hover .remove,                
-                &:active .remove {
-                    visibility: visible;
-                }
-
-                .clickable:focus + .remove {
-                    visibility: visible;
-                }
-                
-                .color-dot {
-                  position: absolute;
-                  left: -25px;
-                  border-radius: 50%;
-                  width: 15px;
-                  height: 15px;
-                  margin-top: 4px;
-                }
-
-                p {
-                    margin-bottom: 5px;
-                }
-
-                q {
-                    font-style: italic;
-                }
-
-                .remove {
-                    visibility: hidden;
-                    position: absolute;
-                    padding: 10px;
-                    right: 10px;
-                    top: 0px;
-                    color: #666;
-                }
-
-                .remove:hover,
-                .remove:focus,
-                .remove:active {                    
-                    color: #000;
-                    background-color: transparent;
-                }
-            }
-
-            .note-row:last-child {
-                border-bottom: none;
-            }
-            
-            .note-content {
-                margin-left: 10px;
-
-                strong {
-                    color: #555;
-                    margin-right: 5px;
-                }
-                
-                .user-note {                    
-                    border-top: 1px solid #DDD;
-                    padding-top: 5px;
-                }
-            }
-
-            .note-title {
-                display: inline-block;
-                color: #0074CE;
-                margin-right: 8px;
-            }
-
-            .note-date {
-                color: #CDCDCD;
-                font-size: 12px;
-            }
-            
-            .text-toggle {
-                color: #CDCDCD;
-                font-size: 12px;
-                float: right;
-            }
-
-            a {
-                display: block;
-                position: relative;
-                cursor: pointer;
-                padding: 15px 45px 15px 0;
-                text-decoration: none;
-                color: inherit;
-
-                &:hover,
-                &:focus,
-                &:active {
-                    background-color: #e6e6e6;
-                }
-                &:focus {
-                    background-color: #EDF8FF;
-                }
-            }
-
-            p {
-                word-wrap: break-word;
-            }
-            
-            /* Sort by Chapter */
-
-            .group-chapter {
-                margin-top: -35px;
-            }
-
-            .group-chapter h2 {
-                border-bottom: 1px solid #D2D2D2;
-                margin-bottom: 0;
-            }
-        }
+    .Green {
+      background-color: #54DF48;
+    }            
+    .green-icon {
+      color: #54DF48;
+    }            
+    .Pink {
+      background-color: #FB91CF;
+    }            
+    .pink-icon {
+      color: #FB91CF;
+    }            
+    .Yellow {
+      background-color: #FFD231;
+    }            
+    .yellow-icon {
+      color: #FFD231;
+    }            
+    .Instructor {
+      background-color: #66FFFF;
+    }            
+    .instructor-icon {
+      color: #66FFFF;
+    }                        
+    .note-row {
+      position: relative;
+      margin-left: 25px;
+      &:hover .remove,                
+      &:active .remove {
+        visibility: visible;
+      }
+      .clickable:focus + .remove {
+        visibility: visible;
+      }                
+      .color-dot {
+        position: absolute;
+        left: -25px;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        margin-top: 4px;
+      }
+      p {
+        margin-bottom: 5px;
+      }
+      q {
+        font-style: italic;
+      }
+      .remove {
+        visibility: hidden;
+        position: absolute;
+        padding: 10px;
+        right: 10px;
+        top: 0px;
+        color: #666;
+      }
+      .remove:hover,
+      .remove:focus,
+      .remove:active {                    
+        color: #000;
+        background-color: transparent;
+      }
     }
-
-    @media (max-width: 767px) {
-        &.notes {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
+    .note-row:last-child {
+      border-bottom: none;
+    }            
+    .note-content {
+      margin-left: 10px;
+      strong {
+        color: #555;
+        margin-right: 5px;
+      }               
+      .user-note {                    
+        border-top: 1px solid #DDD;
+        padding-top: 5px;
+      }
     }
+    .note-title {
+      display: inline-block;
+      color: #0074CE;
+      margin-right: 8px;
+    }
+    .note-date {
+      color: #CDCDCD;
+      font-size: 12px;
+    }           
+    .text-toggle {
+      color: #CDCDCD;
+      font-size: 12px;
+      float: right;
+    }
+    a {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      padding: 15px 45px 15px 0;
+      text-decoration: none;
+      color: inherit;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #e6e6e6;
+      }
+      &:focus {
+        background-color: #EDF8FF;
+      }
+    }
+    p {
+      word-wrap: break-word;
+    }            
+    /* Sort by Chapter */
+    .group-chapter {
+      margin-top: -35px;
+    }
+    .group-chapter h2 {
+      border-bottom: 1px solid #D2D2D2;
+      margin-bottom: 0;
+    }
+  }
+  @media (max-width: 767px) {
+    &.notes {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
 }
 
 $color_1: #4D4D4D;
 $color_2: #FFFFFF;
 
 .noScroll {
-    overflow-y:hidden;
+  overflow-y:hidden;
 }
 
 .hide {
@@ -206,33 +168,32 @@ $color_2: #FFFFFF;
 }
 
 .dotdotdot {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
 }
 
 .empty-help {
-    height: 100%;
-    width: 100%;
-    display: table;
-    padding: 0px 20px;
-    box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  display: table;
+  padding: 0px 20px;
+  box-sizing: border-box;
 }
 
 .empty-message {
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-    float: none;
-    color: #4C5259;
-    font-size: 26px;
-    font-weight: 200;
-    line-height: 20px;
-    padding-top: 30px;
-    
-    p {
-        line-height: 1.2;
-    }
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  float: none;
+  color: #4C5259;
+  font-size: 26px;
+  font-weight: 200;
+  line-height: 20px;
+  padding-top: 30px; 
+  p {
+      line-height: 1.2;
+  }
 }

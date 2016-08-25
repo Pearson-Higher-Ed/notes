@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: './',
-    filename: 'build/[name].component-name.js',
+    filename: 'build/[name].notes.js',
     libraryTarget: 'umd'
   },
   externals: [
