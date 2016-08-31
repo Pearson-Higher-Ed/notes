@@ -50,9 +50,7 @@ class ComponentOwner extends React.Component {
     return (
       <div id="notes" role="main">
           <div className="notes-body">             
-              <div className="notes-content">
-                  {(this.props.notes.length === 0) ? this.renderEmpty() : this.renderNotes()}
-              </div>
+              {(this.props.notes.length === 0) ? this.renderEmpty() : this.renderNotes()}
           </div>
           <div id="notes-assert-container" role="alert" aria-live="assertive" class="reader-only"></div>
       </div>
@@ -71,10 +69,7 @@ class Note extends React.Component {
     super(props);
     
     this.handleNoteClick = this.handleNoteClick.bind(this);
-    this.handleDeleteClick = this.handleDeleteClick.bind(this);
-    this.handleShowMore = this.handleShowMore.bind(this);
-    
-    this.state = {isExpanded: false};
+    this.handleDeleteClick = this.handleDeleteClick.bind(this); 
   }  
   
   handleNoteClick() {
@@ -85,14 +80,10 @@ class Note extends React.Component {
     this.props.removeNote(noteId);
   }
   
-  handleShowMore() {
-    this.setState({isExpanded: !this.state.isExpanded});
-  }
-  
   renderIcon(commentExists) {
     if (commentExists) {
       return(
-        <i className={this.props.color.toLowerCase() + '-icon pe-icon--envelope color-dot'}>
+        <i className={this.props.color.toLowerCase() + '-icon color-icon'}>
                 <span className="reader-only">{this.props.color} Highlight</span>
         </i>               
       )  
@@ -110,43 +101,40 @@ class Note extends React.Component {
   
   render() {                       
     const that = this;
-    const {formatMessage} = this.props.translations;
     const {formatDate} = this.props.translations;
     const commentExists = (this.props.comment) ? true : false;   
     
     return (
       <div className="note-row">
-          <a href="javascript:void(0);"              
+          <a href="javascript:void(0);"
+             className="note-link"
              ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}" 
              tabindex="0">
               {this.renderIcon(commentExists)} 
               <div className="note-content">
                   <div>
-                      <p className="dotdotdot" onClick={this.handleNoteClick} >
-                          <strong>{formatMessage(messages.highlighted)}</strong>
-                          <q>{this.props.text}</q>
+                      <p className="dotdotdot" onClick={this.handleNoteClick} >                          
+                          <strong>{this.props.text}</strong>
                       </p>
                   </div>                  
                   <div className={commentExists ? '' : 'hide'}>
-                      <p className={`user-note ${this.state.isExpanded ? '' : 'dotdotdot'}`}>
-                          <strong>{formatMessage(messages.yourNote)}</strong>
+                      <p className="user-note">
                           {this.props.comment}
-                      </p>                    
-                      <p className="text-toggle" onClick={this.handleShowMore}>{this.state.isExpanded ? formatMessage(messages.showLess) : formatMessage(messages.showMore)}</p>
+                      </p>                                          
                   </div>
                   <span className="note-date">
                     <time value={this.props.time}>
                       {formatDate(new Date(this.props.time), {
                         year : 'numeric',
                         month: 'numeric',
-                        day  : 'numeric'
+                        day: 'numeric'
                       })}</time>
-                    <span> | </span>
+                    &nbsp;&nbsp;
                     <time value={this.props.time}>
                       {formatDate(new Date(this.props.time), {
                         hour : 'numeric',
                         minute: 'numeric',
-                        second  : 'numeric'
+                        second: 'numeric'
                       })}
                     </time>
                   </span>

@@ -13,67 +13,93 @@
   overflow: hidden;
   background: #fff;
   color: #716b7a;               
-  .notes-content {
-    position: relative;
-    hr {
-      margin: 0;
-      margin-top: 5px;
-      border-top: 1px solid #D2D2D2;
-    }
-    .Green {
-      background-color: #54DF48;
-    }            
-    .green-icon {
-      color: #54DF48;
-    }            
-    .Pink {
-      background-color: #FB91CF;
-    }            
-    .pink-icon {
-      color: #FB91CF;
-    }            
-    .Yellow {
-      background-color: #FFD231;
-    }            
-    .yellow-icon {
-      color: #FFD231;
-    }            
-    .Instructor {
-      background-color: #66FFFF;
-    }            
-    .instructor-icon {
-      color: #66FFFF;
-    }                        
+  .notes-body {
+    position: relative;                  
     .note-row {
       position: relative;
-      margin-left: 25px;
       &:hover .remove,                
-      &:active .remove {
+      &:active .remove,
+      &:focus .remove {
         visibility: visible;
       }
-      .clickable:focus + .remove {
-        visibility: visible;
-      }                
+      a {
+        display: block;
+        position: relative;
+        cursor: pointer;     
+        text-decoration: none;
+        color: inherit;
+        &:focus,
+        &:active {
+          background-color: #EDF8FF;
+        }
+        &:hover  {
+          background-color: #e6e6e6;
+        }
+      }
+      .note-link {
+        padding: 20px 24px 20px 64px;
+        position: relative;
+        &:focus + .remove {
+          visibility: visible !important;
+        }
+      }              
       .color-dot {
         position: absolute;
-        left: -25px;
+        left: 24px;
         border-radius: 50%;
         width: 15px;
         height: 15px;
         margin-top: 4px;
       }
-      p {
-        margin-bottom: 5px;
+      .color-icon {
+        z-index: 10;
+        position: absolute;
+        left: 24px;
+        margin-top: 4px;
+        width: 16px;
+        height: 15px;
       }
-      q {
-        font-style: italic;
-      }
+      .Green {
+        background-color: #55df49;
+      }            
+      .green-icon {
+        background-image: url(./img/ic-note-green@2x.png);
+        background-size: 16px 15px;
+        background-position: center;
+        background-repeat: no-repeat;    
+      }            
+      .Pink {
+        background-color: #fc92cf;
+      }            
+      .pink-icon {
+        background-image: url(./img/ic-note-pink@2x.png);
+        background-size: 16px 15px;
+        background-position: center;
+        background-repeat: no-repeat;
+      }            
+      .Yellow {
+        background-color: #ffd232;
+      }            
+      .yellow-icon {
+        background-image: url(./img/ic-note-yellow@2x.png);
+        background-size: 16px 15px;
+        background-position: center;
+        background-repeat: no-repeat;
+      }            
+      .Instructor {
+        background-color: #00a4e0;
+      }            
+      .instructor-icon {
+        background-image: url(./img/ic-note-instructor@2x.png);
+        background-size: 16px 15px;
+        background-position: center;
+        background-repeat: no-repeat;
+      }          
       .remove {
         visibility: hidden;
         position: absolute;
-        padding: 10px;
-        right: 10px;
-        top: 0px;
+        right: 24px;
+        bottom: 20px;
         color: #666;
       }
       .remove:hover,
@@ -87,57 +113,27 @@
       border-bottom: none;
     }            
     .note-content {
-      margin-left: 10px;
       strong {
         color: #555;
         margin-right: 5px;
       }               
-      .user-note {                    
-        border-top: 1px solid #DDD;
-        padding-top: 5px;
+      .text-toggle {
+        color: #CDCDCD;
+        font-size: 12px;
+        float: right;
       }
-    }
-    .note-title {
-      display: inline-block;
-      color: #0074CE;
-      margin-right: 8px;
-    }
-    .note-date {
-      color: #CDCDCD;
-      font-size: 12px;
-    }           
-    .text-toggle {
-      color: #CDCDCD;
-      font-size: 12px;
-      float: right;
-    }
-    a {
-      display: block;
-      position: relative;
-      cursor: pointer;
-      padding: 15px 45px 15px 0;
-      text-decoration: none;
-      color: inherit;
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: #e6e6e6;
-      }
-      &:focus {
-        background-color: #EDF8FF;
-      }
-    }
-    p {
-      word-wrap: break-word;
-    }            
-    /* Sort by Chapter */
-    .group-chapter {
-      margin-top: -35px;
-    }
-    .group-chapter h2 {
-      border-bottom: 1px solid #D2D2D2;
-      margin-bottom: 0;
-    }
+      p {
+        font-family: OpenSans;
+        font-size: 16px;    
+        color: #000000;
+        word-wrap: break-word;
+      }      
+      .note-date {
+        font-family: OpenSans;
+        font-size: 12px;
+        color: #868686;
+      }  
+    }         
   }
   @media (max-width: 767px) {
     &.notes {
