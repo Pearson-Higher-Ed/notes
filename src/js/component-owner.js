@@ -6,14 +6,12 @@ class ComponentOwner extends React.Component {
   constructor(props) {
     super(props);
     
-    this.state = {notes: this.props.notes};
-    this.removeNote = this.removeNote.bind(this);
-  }  
+    this.removeNote = this.removeNote.bind(this);   
+  }
   
-  removeNote(noteId) {
-    const removeNoteIndex = this.state.notes.findIndex(note => note.id === noteId);
-    this.state.notes.splice(removeNoteIndex, 1);
-    this.setState({notes: this.state.notes});
+  removeNote(noteId) {    
+    this.props.store.dispatch(this.props.actions.deleteAnnotation(noteId));
+    this.forceUpdate();
   }
   
   renderEmpty() {
@@ -22,7 +20,7 @@ class ComponentOwner extends React.Component {
     return (
       <div className="empty-help" >
          <div className="empty-message" tabindex="0">
-             <p>{formatMessage(messages.emptyMessage)}</p>                
+             <p>{formatMessage(messages.emptyMessage)}</p>             
          </div>
       </div>         
     ) 
@@ -31,7 +29,7 @@ class ComponentOwner extends React.Component {
   renderNotes() {
     const that = this;
     
-    return this.props.notes.map(function(note, i) {          
+    return this.props.store.getState().annotations.map(function(note, i) {          
       return (
         <Note key={i}
               id={note.id}
@@ -49,8 +47,8 @@ class ComponentOwner extends React.Component {
   render() {
     return (
       <div id="notes" role="main">
-          <div className="notes-body">             
-              {(this.props.notes.length === 0) ? this.renderEmpty() : this.renderNotes()}
+          <div className="notes-body">
+              {(this.props.store.getState().annotations.length === 0) ? this.renderEmpty() : this.renderNotes()}
           </div>
           <div id="notes-assert-container" role="alert" aria-live="assertive" class="reader-only"></div>
       </div>

@@ -31,7 +31,7 @@ export default class Notes {
     
     ReactDOM.render(
       <IntlProvider locale={locale} messages={translations[locale]}>
-        <ComponentOwner notes={config.notes} />
+        <ComponentOwner store={config.store} actions={config.actions} />
       </IntlProvider>,
       document.getElementById(config.elementId)
     );
