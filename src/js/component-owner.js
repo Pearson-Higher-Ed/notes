@@ -59,7 +59,8 @@ class ComponentOwner extends React.Component {
 ComponentOwner.propTypes = {
   intl: intlShape.isRequired,
   locale: PropTypes.string,
-  notes: PropTypes.array   
+  store: PropTypes.object,
+  actions: PropTypes.object
 };
 
 class Note extends React.Component {  
