@@ -6,12 +6,17 @@ class ComponentOwner extends React.Component {
   constructor(props) {
     super(props);
     
+    this.state = {notes: this.props.notes};
     this.removeNote = this.removeNote.bind(this);   
   }
   
-  removeNote(noteId) {    
-    this.props.store.dispatch(this.props.actions.deleteAnnotation(noteId));
-    this.forceUpdate();
+  removeNote(noteId) {
+    if (this.props.store) {
+      this.props.store.dispatch(this.props.actions.deleteAnnotation(noteId));
+    }
+    const removeNoteIndex = this.state.notes.findIndex(note => note.id === noteId);
+    this.state.notes.splice(removeNoteIndex, 1);
+    this.setState({notes: this.state.notes});
   }
   
   renderEmpty() {
@@ -29,7 +34,7 @@ class ComponentOwner extends React.Component {
   renderNotes() {
     const that = this;
     
-    return this.props.store.getState().annotations.map(function(note, i) {          
+    return this.props.notes.map(function(note, i) {          
       return (
         <Note key={i}
               id={note.id}
@@ -48,7 +53,7 @@ class ComponentOwner extends React.Component {
     return (
       <div id="notes" role="main">
           <div className="notes-body">
-              {(this.props.store.getState().annotations.length === 0) ? this.renderEmpty() : this.renderNotes()}
+              {(this.props.notes.length === 0) ? this.renderEmpty() : this.renderNotes()}
           </div>
           <div id="notes-assert-container" role="alert" aria-live="assertive" class="reader-only"></div>
       </div>
@@ -60,7 +65,8 @@ ComponentOwner.propTypes = {
   intl: intlShape.isRequired,
   locale: PropTypes.string,
   store: PropTypes.object,
-  actions: PropTypes.object
+  actions: PropTypes.object,
+  notes: PropTypes.array
 };
 
 class Note extends React.Component {  
