@@ -1,6 +1,6 @@
 // Demo styling
-#notes-demo-title {    
-  margin: 10px 0px 0px 20px;         
+#notes-demo-title {
+  margin: 10px 0px 0px 20px;
 }
 
 #notes-demo {
@@ -12,20 +12,29 @@
   position: relative;
   overflow: hidden;
   background: #fff;
-  color: #716b7a;               
+  color: #716b7a;
   .notes-body {
-    position: relative;                  
+    position: relative;
     .note-row {
       position: relative;
-      &:hover .remove,                
+      &:hover .remove,
       &:active .remove,
       &:focus .remove {
         visibility: visible;
       }
+      &.focused {
+      border-bottom:3px solid transparent;
+      a{
+        border-bottom:1px solid #ddd;
+      }
+      > .remove {
+        @include showDeleteIcon;
+      }
+    }
       a {
         display: block;
         position: relative;
-        cursor: pointer;     
+        cursor: pointer;
         text-decoration: none;
         color: inherit;
         &:focus,
@@ -42,7 +51,7 @@
         &:focus + .remove {
           visibility: visible !important;
         }
-      }              
+      }
       .color-dot {
         position: absolute;
         left: 24px;
@@ -61,62 +70,66 @@
       }
       .Green {
         background-color: #55df49;
-      }            
+      }
       .green-icon {
         background-image: url(./img/ic-note-green@2x.png);
         background-size: 16px 15px;
         background-position: center;
-        background-repeat: no-repeat;    
-      }            
+        background-repeat: no-repeat;
+      }
       .Pink {
         background-color: #fc92cf;
-      }            
+      }
       .pink-icon {
         background-image: url(./img/ic-note-pink@2x.png);
         background-size: 16px 15px;
         background-position: center;
         background-repeat: no-repeat;
-      }            
+      }
       .Yellow {
         background-color: #ffd232;
-      }            
+      }
       .yellow-icon {
         background-image: url(./img/ic-note-yellow@2x.png);
         background-size: 16px 15px;
         background-position: center;
         background-repeat: no-repeat;
-      }            
+      }
       .Instructor {
         background-color: #00a4e0;
-      }            
+      }
       .instructor-icon {
         background-image: url(./img/ic-note-instructor@2x.png);
         background-size: 16px 15px;
         background-position: center;
         background-repeat: no-repeat;
-      }          
+      }
       .remove {
         visibility: hidden;
         position: absolute;
-        right: 24px;
+        right: 25px;
         bottom: 20px;
-        color: #666;
+        height: 18px;
+        width: 18px;
+        text-decoration: none;
+        background: transparent url(./img/ic-trash.png) 0 0 no-repeat;
       }
+
       .remove:hover,
       .remove:focus,
-      .remove:active {                    
+      .remove:active {
         color: #000;
         background-color: transparent;
       }
     }
     .note-row:last-child {
       border-bottom: none;
-    }            
+    }
     .note-content {
       strong {
         color: #555;
         margin-right: 5px;
-      }               
+      }
       .text-toggle {
         color: #CDCDCD;
         font-size: 12px;
@@ -124,16 +137,16 @@
       }
       p {
         font-family: OpenSans;
-        font-size: 16px;    
+        font-size: 16px;
         color: #000000;
         word-wrap: break-word;
-      }      
+      }
       .note-date {
         font-family: OpenSans;
         font-size: 12px;
         color: #868686;
-      }  
-    }         
+      }
+    }
   }
   @media (max-width: 767px) {
     &.notes {
@@ -188,7 +201,7 @@ $color_2: #FFFFFF;
   font-size: 26px;
   font-weight: 200;
   line-height: 20px;
-  padding-top: 30px; 
+  padding-top: 30px;
   p {
       line-height: 1.2;
   }

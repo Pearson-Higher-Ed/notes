@@ -103,6 +103,14 @@ class Note extends React.Component {
       )
     }
   }
+  onFocus(e) {
+    e.target.parentNode.classList.add('focused');
+    return true;
+  }
+  onBlur(e) {
+    e.target.parentNode.className = 'note-row';
+    return true;
+  }
 
   render() {
     const that = this;
@@ -110,11 +118,12 @@ class Note extends React.Component {
     const commentExists = (this.props.comment) ? true : false;
 
     return (
-      <div className="note-row" tabIndex="0">
+      <div className="note-row">
           <a href="javascript:void(0);"
              className="note-link"
-             ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}"
-             tabIndex="1">
+             onFocus= {that.onFocus.bind(that)}
+             tabIndex="0"
+             ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}">
               {this.renderIcon(commentExists)}
               <div className="note-content">
                   <div>
@@ -146,12 +155,13 @@ class Note extends React.Component {
               </div>
           </a>
           <a href="javascript:void(0);"
-             tabIndex="2"
              className="remove"
+             tabIndex="0"
+             onBlur={that.onBlur.bind(that)}
              onClick={this.handleDeleteClick.bind(that, this.props.id)}
              ui-keypress="{'enter': 'noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()'}"
              aria-label="Remove highlight">
-              <i className="pe-icon--trash-o"></i>
+
           </a>
       </div>
     )
