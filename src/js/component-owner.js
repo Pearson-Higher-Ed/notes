@@ -39,6 +39,7 @@ class ComponentOwner extends React.Component {
         <Note key={i}
               id={note.id}
               author={note.author}
+              pageId={note.pageId}
               color={note.color}
               comment={note.comment}
               text={note.text}
@@ -77,8 +78,8 @@ class Note extends React.Component {
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
   }
 
-  handleNoteClick() {
-    alert('note clicked');
+  handleNoteClick(pageId) {
+    window.pubsub.publish('GO_TO_PAGE', pageId);
   }
 
   handleDeleteClick(noteId) {
@@ -123,11 +124,12 @@ class Note extends React.Component {
              className="note-link"
              onFocus= {that.onFocus.bind(that)}
              tabIndex="0"
-             ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}">
+             ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}"
+             onClick={this.handleNoteClick.bind(that, this.props.pageId)}>
               {this.renderIcon(commentExists)}
               <div className="note-content">
                   <div>
-                      <p className="dotdotdot" onClick={this.handleNoteClick} >
+                      <p className="dotdotdot">
                           <strong>{this.props.text}</strong>
                       </p>
                   </div>
