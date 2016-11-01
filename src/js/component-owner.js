@@ -39,6 +39,7 @@ class ComponentOwner extends React.Component {
         <Note key={i}
               id={note.id}
               author={note.author}
+              pageId={note.pageId}
               color={note.color}
               comment={note.comment}
               text={note.text}
@@ -77,8 +78,8 @@ class Note extends React.Component {
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
   }
 
-  handleNoteClick() {
-    alert('note clicked');
+  handleNoteClick(pageId) {
+    window.pubsub.publish('GO_TO_PAGE', pageId);
   }
 
   handleDeleteClick(noteId) {
@@ -103,6 +104,14 @@ class Note extends React.Component {
       )
     }
   }
+  onFocus(e) {
+    e.target.parentNode.classList.add('focused');
+    return true;
+  }
+  onBlur(e) {
+    e.target.parentNode.className = 'note-row';
+    return true;
+  }
 
   render() {
     const that = this;
@@ -110,15 +119,17 @@ class Note extends React.Component {
     const commentExists = (this.props.comment) ? true : false;
 
     return (
-      <div className="note-row" tabIndex="0">
+      <div className="note-row">
           <a href="javascript:void(0);"
              className="note-link"
+             onFocus= {that.onFocus.bind(that)}
+             tabIndex="0"
              ui-keypress="{'enter': 'noteCtrl.goToNote(note)'}"
-             tabIndex="1">
+             onClick={this.handleNoteClick.bind(that, this.props.pageId)}>
               {this.renderIcon(commentExists)}
               <div className="note-content">
                   <div>
-                      <p className="dotdotdot" onClick={this.handleNoteClick} >
+                      <p className="dotdotdot">
                           <strong>{this.props.text}</strong>
                       </p>
                   </div>
@@ -146,12 +157,13 @@ class Note extends React.Component {
               </div>
           </a>
           <a href="javascript:void(0);"
-             tabIndex="2"
              className="remove"
+             tabIndex="0"
+             onBlur={that.onBlur.bind(that)}
              onClick={this.handleDeleteClick.bind(that, this.props.id)}
              ui-keypress="{'enter': 'noteCtrl.removeNote(note, note.annotationId); $event.stopPropagation()'}"
              aria-label="Remove highlight">
-              <i className="pe-icon--trash-o"></i>
+
           </a>
       </div>
     )
