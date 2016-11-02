@@ -3,7 +3,7 @@ import { intlShape, injectIntl } from 'react-intl';
 import { messages } from './defaultMessages';
 import Note from './Note';
 
-class NotesList extends React.Component {
+class NoteList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -63,7 +63,7 @@ class NotesList extends React.Component {
   }
 }
 
-NotesList.propTypes = {
+NoteList.propTypes = {
   intl: intlShape.isRequired,
   locale: PropTypes.string,
   store: PropTypes.object,
@@ -71,4 +71,4 @@ NotesList.propTypes = {
   notes: PropTypes.array
 };
 
-export default injectIntl(NotesList); // Inject this.props.intl into the component context
+export default injectIntl(NoteList); // Inject this.props.intl into the component context
