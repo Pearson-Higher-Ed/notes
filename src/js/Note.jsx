@@ -45,7 +45,7 @@ export default class Note extends React.Component {
 
   render() {
     const that = this;
-    const {formatDate} = this.props.translations;
+    // const {formatDate} = this.props.translations;
     const commentExists = (this.props.comment) ? true : false;
 
     return (
@@ -69,20 +69,7 @@ export default class Note extends React.Component {
                       </p>
                   </div>
                   <span className="note-date">
-                    <time value={this.props.time}>
-                      {formatDate(new Date(this.props.time), {
-                        year : 'numeric',
-                        month: 'numeric',
-                        day: 'numeric'
-                      })}</time>
-                    &nbsp;&nbsp;
-                    <time value={this.props.time}>
-                      {formatDate(new Date(this.props.time), {
-                        hour : 'numeric',
-                        minute: 'numeric',
-                        second: 'numeric'
-                      })}
-                    </time>
+                    <time value={this.props.time} >{this.props.time}</time>
                   </span>
               </div>
           </a>

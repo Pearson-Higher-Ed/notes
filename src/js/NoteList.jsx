@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react';
-import { intlShape, injectIntl } from 'react-intl';
+// import { intlShape, injectIntl } from 'react-intl';
 import { messages } from './defaultMessages';
 import Note from './Note';
 
-class NoteList extends React.Component {
+export default class NoteList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -45,8 +45,7 @@ class NoteList extends React.Component {
               comment={note.comment}
               text={note.text}
               time={note.time}
-              removeNote={that.removeNote}
-              translations={that.props.intl} />
+              removeNote={that.removeNote} />
       );
     });
   }
@@ -63,12 +62,12 @@ class NoteList extends React.Component {
   }
 }
 
-NoteList.propTypes = {
-  intl: intlShape.isRequired,
-  locale: PropTypes.string,
-  store: PropTypes.object,
-  actions: PropTypes.object,
-  notes: PropTypes.array
-};
+// NoteList.propTypes = {
+//   intl: intlShape.isRequired,
+//   locale: PropTypes.string,
+//   store: PropTypes.object,
+//   actions: PropTypes.object,
+//   notes: PropTypes.array
+// };
 
-export default injectIntl(NoteList); // Inject this.props.intl into the component context
+// export default injectIntl(NoteList); // Inject this.props.intl into the component context

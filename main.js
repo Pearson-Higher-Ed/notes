@@ -9,8 +9,8 @@ import frJson from './translations/fr.json';
 import nlJson from './translations/nl.json';
 import itJson from './translations/it.json';
 import './main.scss';
-
-import NoteList from './src/js/NoteList';
+import ComponentOwner from './src/js/component-owner';
+// import NoteList from './src/js/NoteList';
 
 const translations = {
   'fr' : frJson,
@@ -31,7 +31,7 @@ export default class NoteListComponent {
     
     ReactDOM.render(
       <IntlProvider locale={locale} messages={translations[locale]}>
-        <NoteList store={config.store} actions={config.actions} notes={config.notes} />
+        <ComponentOwner notes={config.notes} />
       </IntlProvider>,
       document.getElementById(config.elementId)
     );
