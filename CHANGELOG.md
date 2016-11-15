@@ -1,5 +1,10 @@
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/Pearson-Higher-Ed/compare/v0.1.2...v0.1.3) (2016-11-15)
+
+
+
 <a name="0.1.2"></a>
-## 0.1.2 (2016-11-15)
+## [0.1.2](https://github.com/Pearson-Higher-Ed/compare/896ea18...v0.1.2) (2016-11-15)
 
 
 ### Bug Fixes
