@@ -14,6 +14,7 @@ export default class NoteList extends Component {
     if (this.props.store) {
       this.props.store.dispatch(this.props.actions.deleteAnnotation(noteId));
     }
+    
     const removeNoteIndex = this.state.notes.findIndex(note => note.id === noteId);
     this.state.notes.splice(removeNoteIndex, 1);
     this.setState({notes: this.state.notes});
