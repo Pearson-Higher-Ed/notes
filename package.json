@@ -23,7 +23,6 @@
     "url": "https://github.com/Pearson-Higher-Ed/"
   },
   "dependencies": {
-    "@pearson-incubator/bookmarks": "^0.1.2",
     "react-intl": "~2.0.1"
   },
   "devDependencies": {

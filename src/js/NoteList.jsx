@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { messages } from './defaultMessages';
 import Note from './Note';
 
 export default class NoteList extends Component {
@@ -21,12 +20,10 @@ export default class NoteList extends Component {
   }
 
   renderEmpty() {
-    const {formatMessage} = this.props.intl;
-
     return (
       <div className="empty-help" >
-         <div className="empty-message" tabindex="0">
-             <p>{formatMessage(messages.emptyMessage)}</p>
+         <div className="empty-message" tabIndex="0">
+             <p>When you highlight text or add notes, they will appear here.</p>
          </div>
       </div>
     )
@@ -61,4 +58,3 @@ export default class NoteList extends Component {
     )
   }
 }
-
