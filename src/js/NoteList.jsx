@@ -1,9 +1,8 @@
-import React, {PropTypes} from 'react';
-// import { intlShape, injectIntl } from 'react-intl';
+import React, {Component} from 'react';
 import { messages } from './defaultMessages';
 import Note from './Note';
 
-export default class NoteList extends React.Component {
+export default class NoteList extends Component {
   constructor(props) {
     super(props);
 
@@ -56,18 +55,9 @@ export default class NoteList extends React.Component {
           <div className="notes-body">
               {(this.props.notes.length === 0) ? this.renderEmpty() : this.renderNotes()}
           </div>
-          <div id="notes-assert-container" role="alert" aria-live="assertive" class="reader-only"></div>
+          <div id="notes-assert-container" role="alert" aria-live="assertive" className="reader-only"></div>
       </div>
     )
   }
 }
 
-// NoteList.propTypes = {
-//   intl: intlShape.isRequired,
-//   locale: PropTypes.string,
-//   store: PropTypes.object,
-//   actions: PropTypes.object,
-//   notes: PropTypes.array
-// };
-
-// export default injectIntl(NoteList); // Inject this.props.intl into the component context
