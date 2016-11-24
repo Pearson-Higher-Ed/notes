@@ -59,16 +59,6 @@ export default class Note extends React.Component {
     e.target.parentNode.className = 'note-row';
     return true;
   }
-  handleUp(e) {
-    switch(e.key) {
-      case "ArrowDown":
-          this.props.handleFocus(this.props.id+1);
-      break;
-      case "ArrowUp":
-          this.props.handleFocus(this.props.id-1); 
-      break;
-    }
-  }
 
   render() {
     const that = this;
@@ -124,8 +114,6 @@ export default class Note extends React.Component {
              className="note-link"
              onFocus= {that.onFocus.bind(that)}
              tabIndex="0"
-             onKeyUp={this.handleUp.bind(this)}
-             ref='a'
              onClick={this.handleNoteClick.bind(that, this.props.pageId)}>
               {this.renderIcon(commentExists)}
               <div className="note-content">

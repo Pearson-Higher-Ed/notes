@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Note from './Note';
-import ReactDOM from 'react-dom';
 
 export default class NoteList extends Component {
   constructor(props) {
@@ -30,30 +29,20 @@ export default class NoteList extends Component {
     )
   }
 
-  handleFocus(id) {
-    let Note = this.refs['Note' + id];
-    if (!Note) return;
-    let a = Note.refs.a;
-    ReactDOM.findDOMNode(a).focus();
-  }
-
   renderNotes() {
     const that = this;
 
     return this.props.notes.map(function(note, i) {
       return (
         <Note key={i}
-              id={i}
-              noteId={note.id}
+              id={note.id}
               author={note.author}
               pageId={note.pageId}
               color={note.color}
               comment={note.comment}
               text={note.text}
               time={note.time}
-              removeNote={that.removeNote} 
-              handleFocus={that.handleFocus.bind(that)} 
-              ref={'Note' + i}/>
+              removeNote={that.removeNote} />
       );
     });
   }
