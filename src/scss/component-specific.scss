@@ -20,13 +20,12 @@
       &:hover .remove,
       &:active .remove,
       &:focus .remove {
-        visibility: visible;
+        visibility: visible;       
+      }
+      &:hover  {
+          background-color: #EDF8FF;
       }
       &.focused {
-      border-bottom:3px solid transparent;
-      a{
-        border-bottom:1px solid #ddd;
-      }
       > .remove {
         @include showDeleteIcon;
       }
@@ -37,13 +36,10 @@
         cursor: pointer;
         text-decoration: none;
         color: inherit;
-        &:focus,
-        &:active {
+        &:focus{
           background-color: #EDF8FF;
         }
-        &:hover  {
-          background-color: #e6e6e6;
-        }
+       
       }
       .note-link {
         padding: 20px 24px 20px 64px;
@@ -116,10 +112,9 @@
       }
 
       .remove:hover,
-      .remove:focus,
-      .remove:active {
-        color: #000;
-        background-color: transparent;
+      .remove:focus {
+       @include showDeleteIcon;
+        opacity: 0.6;
       }
     }
     .note-row:last-child {
