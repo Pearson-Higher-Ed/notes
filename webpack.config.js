@@ -47,7 +47,11 @@ module.exports = {
       {
         test: /\.(woff|png|jpg|gif)$/,
         loader: 'url-loader?limit=10000'
-      }
+      },
+      {
+       test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+       loader: 'url?mimetype=image/svg+xml'
+     }
     ]
   },
   resolve: {

@@ -68,7 +68,7 @@
         background-color: #55df49;
       }
       .green-icon {
-        background-image: url(./img/ic-note-green@2x.png);
+        background-image: url(./img/ic-note-green.svg);
         background-size: 16px 15px;
         background-position: center;
         background-repeat: no-repeat;
@@ -77,7 +77,7 @@
         background-color: #fc92cf;
       }
       .pink-icon {
-        background-image: url(./img/ic-note-pink@2x.png);
+        background-image: url(./img/ic-note-pink.svg);
         background-size: 16px 15px;
         background-position: center;
         background-repeat: no-repeat;
@@ -86,7 +86,7 @@
         background-color: #ffd232;
       }
       .yellow-icon {
-        background-image: url(./img/ic-note-yellow@2x.png);
+        background-image: url(./img/ic-note-yellow.svg);
         background-size: 16px 15px;
         background-position: center;
         background-repeat: no-repeat;
@@ -95,7 +95,7 @@
         background-color: #00a4e0;
       }
       .instructor-icon {
-        background-image: url(./img/ic-note-instructor@2x.png);
+        background-image: url(./img/ic-note-instructor.svg);
         background-size: 16px 15px;
         background-position: center;
         background-repeat: no-repeat;
@@ -108,7 +108,7 @@
         height: 18px;
         width: 18px;
         text-decoration: none;
-        background: transparent url(./img/ic-trash.png) 0 0 no-repeat;
+        background: transparent url(./img/ic-trash.svg) 0 0 no-repeat;
       }
 
       .remove:hover,
