@@ -25,11 +25,6 @@
       &:hover  {
           background-color: #EDF8FF;
       }
-      &.focused {
-      > .remove {
-        @include showDeleteIcon;
-      }
-    }
       a {
         display: block;
         position: relative;
