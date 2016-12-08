@@ -25,7 +25,7 @@ export default class Note extends React.Component {
   };
 
   handleNoteClick(pageId) {
-   // window.pubsub.publish('GO_TO_PAGE', pageId);
+    this.props.noteClick(pageId);
   }
 
   handleDeleteClick(noteId) {

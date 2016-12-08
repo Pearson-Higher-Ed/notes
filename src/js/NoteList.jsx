@@ -6,13 +6,16 @@ export default class NoteList extends Component {
     super(props);
 
     this.state = {notes: this.props.notes};
-    this.removeNote = this.removeNote.bind(this);
+    this.noteClick = this.noteClick.bind(this);
+    this.removeNote = this.removeNote.bind(this);    
   }
 
-  removeNote(noteId) {
-    if (this.props.store) {
-      this.props.store.dispatch(this.props.actions.deleteAnnotation(noteId));
-    }
+  noteClick(pageId) {
+    this.props.clickNoteHandler(pageId);
+  }
+
+  removeNote(noteId) {    
+    this.props.removeNoteHandler(noteId);
     
     const removeNoteIndex = this.state.notes.findIndex(note => note.id === noteId);
     this.state.notes.splice(removeNoteIndex, 1);
@@ -42,7 +45,8 @@ export default class NoteList extends Component {
               comment={note.comment}
               text={note.text}
               time={note.time}
-              removeNote={that.removeNote} />
+              removeNote={that.removeNote} 
+              noteClick={that.noteClick} />
       );
     });
   }
