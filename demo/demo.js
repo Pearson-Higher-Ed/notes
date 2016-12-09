@@ -1,4 +1,3 @@
-import Notes from '../main';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 function getParameterByName(name, url) {
@@ -16,6 +15,11 @@ function getParameterByName(name, url) {
   }
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+window.onload = init;
+
+window.noteClickCbk = function() {
+  alert('Clicked on Note');
+};
 
 function init() {  
   injectTapEventPlugin(); 
@@ -28,12 +32,16 @@ function init() {
  
   const locale = getParameterByName('locale');
   
+  
   // Create new instance of notes component
-  new Notes({
-    elementId: 'notes-demo',    
-    locale: locale,
-    notes: mockData
-  });
+  document.body.dispatchEvent(new CustomEvent('o.InitNotes', {
+    detail: {
+      elementId: 'notes-demo',   
+      locale: locale,
+      notes: mockData,
+      clickNoteHandler : window.noteClickCbk
+    }
+  }));
 }
 
-window.onload = init;
+

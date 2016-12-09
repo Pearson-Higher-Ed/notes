@@ -28,7 +28,7 @@ class ComponentOwner extends React.Component {
   render() {    
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <NoteList notes={this.props.notes} />
+        <NoteList notes={this.props.notes} clickNoteHandler={this.props.clickNoteHandler}/>
       </MuiThemeProvider>
     )
   }

@@ -62,3 +62,8 @@ export default class NoteList extends Component {
     )
   }
 }
+
+NoteList.propTypes = {
+  clickNoteHandler: React.PropTypes.func,
+  removeNoteHandler: React.PropTypes.func
+};

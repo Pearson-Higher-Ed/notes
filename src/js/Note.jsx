@@ -24,8 +24,11 @@ export default class Note extends React.Component {
     this.setState({modalOpen: false});
   };
 
-  handleNoteClick(pageId) {
+  handleNoteClick(pageId,e) {
     this.props.noteClick(pageId);
+    let listDom = Array.from(document.getElementsByClassName('note-row'));
+    listDom.map((node) => node.className = 'note-row');
+    e.target.parentNode.classList.add('focused');
   }
 
   handleDeleteClick(noteId) {

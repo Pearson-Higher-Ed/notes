@@ -31,7 +31,7 @@ export default class NoteListComponent {
     
     ReactDOM.render(
       <IntlProvider locale={locale} messages={translations[locale]}>
-        <ComponentOwner notes={config.notes} />
+        <ComponentOwner notes={config.notes} clickNoteHandler={config.clickNoteHandler}/>
       </IntlProvider>,
       document.getElementById(config.elementId)
     );
