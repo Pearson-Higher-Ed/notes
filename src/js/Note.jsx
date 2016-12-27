@@ -24,9 +24,9 @@ export default class Note extends React.Component {
     this.setState({modalOpen: false});
   };
 
-  handleNoteClick(pageId,e) {
+  handleNoteClick(pageId, e) {
     this.props.noteClick(pageId);
-    let listDom = Array.from(document.getElementsByClassName('note-row'));
+    const listDom = Array.from(document.getElementsByClassName('note-row'));
     listDom.map((node) => node.className = 'note-row');
     e.target.parentNode.classList.add('focused');
   }
@@ -67,6 +67,9 @@ export default class Note extends React.Component {
     const that = this;
     // const {formatDate} = this.props.translations;
     const commentExists = (this.props.comment) ? true : false;
+    const formatDateFrom_ms = new Date(this.props.time);
+    const date = formatDateFrom_ms.toLocaleDateString();
+    const time = formatDateFrom_ms.toLocaleTimeString().replace(/(.*)\D\d+/, '$1');
 
     const DialogStyle = {
       dialogContainerstyl : {
@@ -131,7 +134,7 @@ export default class Note extends React.Component {
                       </p>
                   </div>
                   <span className="note-date">
-                    <time value={this.props.time} >{this.props.time}</time>
+                    <time value={this.props.time} >{date + ' ' + time}</time>
                   </span>
               </div>
           </a>
