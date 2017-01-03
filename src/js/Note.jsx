@@ -104,6 +104,7 @@ export default class Note extends React.Component {
       <FlatButton
         label="Delete"
         primary={true}
+        keyboardFocused={true}
         onClick={this.handleDeleteClick.bind(this, this.props.id)}
         style={DialogStyle.deleteBtnstyl}
         className="deleteBtn" />
