@@ -63,13 +63,27 @@ export default class Note extends React.Component {
     return true;
   }
 
+  formatAMPM(date) {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    const strTime = `${hours}:${minutes} ${ampm}`;
+    return strTime;
+  }
+
   render() {
     const that = this;
     // const {formatDate} = this.props.translations;
     const commentExists = (this.props.comment) ? true : false;
     const formatDateFrom_ms = new Date(this.props.time);
-    const date = formatDateFrom_ms.toLocaleDateString();
-    const time = formatDateFrom_ms.toLocaleTimeString().replace(/(.*)\D\d+/, '$1');
+    const formattedAMPM = this.formatAMPM(formatDateFrom_ms);
+    const dateWithTime = `${formatDateFrom_ms.getMonth() + 1}/${formatDateFrom_ms.getDate()}/${formatDateFrom_ms.getFullYear()} ${formattedAMPM}`;
+
+    // const date = formatDateFrom_ms.toLocaleDateString();
+    // const time = formatDateFrom_ms.toLocaleTimeString().replace(/(.*)\D\d+/, '$1');
 
     const DialogStyle = {
       dialogContainerstyl : {
@@ -135,7 +149,7 @@ export default class Note extends React.Component {
                       </p>
                   </div>
                   <span className="note-date">
-                    <time value={this.props.time} >{date + ' ' + time}</time>
+                    <time value={this.props.time} >{dateWithTime}</time>
                   </span>
               </div>
           </a>
