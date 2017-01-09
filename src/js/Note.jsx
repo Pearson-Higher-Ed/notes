@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import SvgIcon from 'material-ui/SvgIcon';
@@ -74,6 +75,23 @@ export default class Note extends React.Component {
     return strTime;
   }
 
+  dialogKeySelect = (event) => {
+    if ((event.which === 9 || event.keyCode === 9) && !event.shiftKey) {
+      document.getElementsByClassName('handleCloseIcon')[0].focus();
+      event.preventDefault();
+    }
+  }
+
+  cancelIconKeySelect = (event) => {
+    if ((event.which || event.keyCode) === 13) {
+      this.handleModalClose();
+    }
+    if ((event.which === 9 || event.keyCode === 9) && event.shiftKey) {
+      document.getElementsByClassName('deleteBtn')[0].focus();
+      event.preventDefault();
+    }
+  }
+
   render() {
     const that = this;
     // const {formatDate} = this.props.translations;
@@ -120,6 +138,7 @@ export default class Note extends React.Component {
         primary={true}
         keyboardFocused={true}
         onClick={this.handleDeleteClick.bind(this, this.props.id)}
+        onKeyDown={this.dialogKeySelect}
         style={DialogStyle.deleteBtnstyl}
         className="deleteBtn" />
     ];
@@ -167,7 +186,7 @@ export default class Note extends React.Component {
             open={this.state.modalOpen}
             onRequestClose={this.handleModalClose}
             contentStyle={DialogStyle.dialogContainerstyl}>
-              <CancelIcon onClick={this.handleModalClose} viewBox="703 14 18 18.7" style={DialogStyle.cancelIcon} />
+              <CancelIcon tabIndex="0" onClick={this.handleModalClose} viewBox="703 14 18 18.7" style={DialogStyle.cancelIcon} className="handleCloseIcon" onKeyDown={this.cancelIconKeySelect}/>
               This action cannot be undone.
           </Dialog>
       </div>
