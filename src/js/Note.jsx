@@ -96,7 +96,7 @@ export default class Note extends React.Component {
     const that = this;
     // const {formatDate} = this.props.translations;
     const commentExists = (this.props.comment) ? true : false;
-    const formatDateFrom_ms = new Date(this.props.time);
+    const formatDateFrom_ms = new Date(Number(this.props.time));
     const formattedAMPM = this.formatAMPM(formatDateFrom_ms);
     const dateWithTime = `${formatDateFrom_ms.getMonth() + 1}/${formatDateFrom_ms.getDate()}/${formatDateFrom_ms.getFullYear()} ${formattedAMPM}`;
 
