@@ -31,6 +31,12 @@ export default class Note extends React.Component {
     listDom.map((node) => node.className = 'note-row');
     e.target.parentNode.classList.add('focused');
   }
+  arrowKeyPress(e) {
+    if (e.which === 37 || e.keyCode === 37 || e.which === 38 || e.keyCode === 38 || e.which === 39 || e.keyCode === 39 || e.which === 40 || e.keyCode === 40) { // down Arrow key
+      e.preventDefault();
+      e.target.parentNode.classList.remove('focused');
+    }
+  }
 
   handleDeleteClick(noteId) {
     this.props.removeNote(noteId);
@@ -154,7 +160,8 @@ export default class Note extends React.Component {
              className="note-link"
              onFocus= {that.onFocus.bind(that)}
              tabIndex="0"
-             onClick={this.handleNoteClick.bind(that, this.props.pageId)}>
+             onClick={this.handleNoteClick.bind(that, this.props.pageId)}
+             onKeyUp={this.arrowKeyPress.bind(that)}>
               {this.renderIcon(commentExists)}
               <div className="note-content">
                   <div>
