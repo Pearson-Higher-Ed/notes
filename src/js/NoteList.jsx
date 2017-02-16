@@ -46,7 +46,8 @@ export default class NoteList extends Component {
               text={note.text}
               time={note.time}
               removeNote={that.removeNote} 
-              noteClick={that.noteClick} />
+              noteClick={that.noteClick}
+              drawerCallbacks = {that.props.drawerCallbacks} />
       );
     });
   }
@@ -65,5 +66,6 @@ export default class NoteList extends Component {
 
 NoteList.propTypes = {
   clickNoteHandler: React.PropTypes.func,
-  removeNoteHandler: React.PropTypes.func
+  removeNoteHandler: React.PropTypes.func,
+  drawerCallbacks: React.PropTypes.object
 };

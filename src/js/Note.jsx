@@ -67,6 +67,12 @@ export default class Note extends React.Component {
   }
   onBlur(e) {
     e.target.parentNode.className = 'note-row';
+    const current_note = document.getElementsByClassName('note-row')
+    const last_element = current_note[current_note.length - 1];
+    if( e.target.parentNode === last_element ) {
+      this.props.drawerCallbacks.onActive('contents');
+      this.props.drawerCallbacks.changeState(0);
+    }
     return true;
   }
 
@@ -200,3 +206,6 @@ export default class Note extends React.Component {
     )
   }
 }
+Note.propTypes = {
+  drawerCallbacks: React.PropTypes.object
+};
