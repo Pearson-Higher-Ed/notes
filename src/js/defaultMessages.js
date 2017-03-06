@@ -8,8 +8,8 @@ export const messages = defineMessages({
     id: 'title',
     defaultMessage: 'Highlights & Notes'
   },
-  emptyMessage: {
-    id: 'emptyMessage',
+  noNotesMsg: {
+    id: 'noNotesMsg',
     defaultMessage: 'When you highlight text or add notes, they will appear here.'
   },
   showMore: {
@@ -27,5 +27,29 @@ export const messages = defineMessages({
   yourNote: {
     id: 'yourNote',
     defaultMessage: 'Your Note: '
+  },
+  removeNoteText: {
+    id: 'removeNoteText',
+    defaultMessage: 'Remove note'
+  },
+  cancel: {
+    id: 'cancel',
+    defaultMessage: 'Cancel'
+  },
+  delete: {
+    id: 'delete',
+    defaultMessage: 'Delete'
+  },
+  confirmDelete: {
+    id: 'confirmDelete',
+    defaultMessage: 'Confirm Delete?'
+  },
+  actionCannotBeUnDone: {
+    id: 'actionCannotBeUnDone',
+    defaultMessage: 'This action cannot be undone.'
+  },
+  close: {
+    id: 'close',
+    defaultMessage: 'Close'
   }
 });

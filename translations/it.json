@@ -1,8 +1,14 @@
 {
   "title": "Evidenziazioni e note",
-  "emptyMessage": "Qui vengono visualizzati il testo evidenziato o le note aggiunte.",
+  "noNotesMsg": "Qui vengono visualizzati il testo evidenziato o le note aggiunte.",
   "showMore" : "mostra di più",
   "showLess" : "mostra meno",
   "highlighted" : "Evidenziato: ",
-  "yourNote": "Nota: "  
+  "yourNote": "Nota: ",
+  "removeNoteText":"rimuovere nota",
+  "cancel": "Annulla",
+  "delete": "Elimina",
+  "confirmDelete": "Conferma cancellazione?",
+  "actionCannotBeUnDone": "Questa azione non può essere annullata.",
+  "close": "Vicino"
 }

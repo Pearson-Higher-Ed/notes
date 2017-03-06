@@ -1,20 +1,20 @@
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { addLocaleData } from 'react-intl';
+import enLocaleData from 'react-intl/locale-data/en';
+import frLocaleData from 'react-intl/locale-data/fr';
+import tsLocaleData from 'react-intl/locale-data/ts';
 
-function getParameterByName(name, url) {
-  if (!url) {
-    url = window.location.href;
-  }
-  name = name.replace(/[\[\]]/g, '\\$&');
-  const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-  const results = regex.exec(url);
-  if (!results) {
-    return null;
-  }
-  if (!results[2]) {
-    return '';
-  }
-  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+const localeData = {
+  en: enLocaleData,
+  fr: frLocaleData,
+  ts: tsLocaleData
+};
+
+function getParam(item) {
+  const svalue = location.search.match(new RegExp('[\?\&]' + item + '=([^\&]*)(\&?)', 'i'));
+  return svalue ? svalue[1] : svalue;
 }
+
 window.onload = init;
 
 window.noteClickCbk = function() {
@@ -30,14 +30,14 @@ function init() {
                     {id: 4, author: 'Jordan Walke', time: 86400000, text: 'This is the fourth notes highlighted text', comment: '', color: 'Yellow'},
                     {id: 5, author: 'Shandy Miller', time: 86400000, text: 'This is the fifth notes highlighted text', comment: 'This is the fifth from the instructor', color: 'Instructor'}];   
  
-  const locale = getParameterByName('locale');
-  
+  const region = getParam('lang') || 'en';
+  addLocaleData(localeData[region]);
   
   // Create new instance of notes component
   document.body.dispatchEvent(new CustomEvent('o.InitNotes', {
     detail: {
       elementId: 'notes-demo',   
-      locale: locale,
+      locale: region,
       notes: mockData,
       clickNoteHandler : window.noteClickCbk
     }

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import SvgIcon from 'material-ui/SvgIcon';
+import { messages } from './defaultMessages';
 
 
 export default class Note extends React.Component {
@@ -69,22 +70,11 @@ export default class Note extends React.Component {
     e.target.parentNode.className = 'note-row';
     const current_note = document.getElementsByClassName('note-row')
     const last_element = current_note[current_note.length - 1];
-    if( e.target.parentNode === last_element ) {
+    if (e.target.parentNode === last_element) {
       this.props.drawerCallbacks.onActive('contents');
       this.props.drawerCallbacks.changeState(0);
     }
     return true;
-  }
-
-  formatAMPM(date) {
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    const ampm = hours >= 12 ? 'pm' : 'am';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? `0${minutes}` : minutes;
-    const strTime = `${hours}:${minutes} ${ampm}`;
-    return strTime;
   }
 
   dialogKeySelect = (event) => {
@@ -106,14 +96,8 @@ export default class Note extends React.Component {
 
   render() {
     const that = this;
-    // const {formatDate} = this.props.translations;
+    const { formatMessage, formatDate, formatTime } = that.props.intl;
     const commentExists = (this.props.comment) ? true : false;
-    const formatDateFrom_ms = new Date(Number(this.props.time));
-    const formattedAMPM = this.formatAMPM(formatDateFrom_ms);
-    const dateWithTime = `${formatDateFrom_ms.getMonth() + 1}/${formatDateFrom_ms.getDate()}/${formatDateFrom_ms.getFullYear()} ${formattedAMPM}`;
-
-    // const date = formatDateFrom_ms.toLocaleDateString();
-    // const time = formatDateFrom_ms.toLocaleTimeString().replace(/(.*)\D\d+/, '$1');
 
     const DialogStyle = {
       dialogContainerstyl : {
@@ -140,13 +124,13 @@ export default class Note extends React.Component {
     }
     const actions = [
       <FlatButton
-        label="Cancel"
+        label={formatMessage(messages.cancel)}
         primary={true}
         style={DialogStyle.cancelbtnstyl}
         className="cancelBtn"
         onClick={this.handleModalClose} />,
       <FlatButton
-        label="Delete"
+        label={formatMessage(messages.delete)}
         primary={true}
         autoFocus={true}
         onClick={this.handleDeleteClick.bind(this, this.props.id)}
@@ -181,7 +165,18 @@ export default class Note extends React.Component {
                       </p>
                   </div>
                   <span className="note-date">
-                    <time value={this.props.time} >{dateWithTime}</time>
+                    <time value={this.props.time}>{formatDate(new Date(Number(this.props.time)), {
+                      year : 'numeric',
+                      month: 'numeric',
+                      day  : 'numeric'
+                    })}</time>
+                  {' '}
+                    <time value={this.props.time}>{formatTime(new Date(Number(this.props.time)), {
+                      timeZone:that.props.locale,
+                      hour12: true,
+                      hour : 'numeric',
+                      minute: 'numeric'
+                    })}</time>
                   </span>
               </div>
           </a>
@@ -190,17 +185,18 @@ export default class Note extends React.Component {
              tabIndex="0"
              onBlur={that.onBlur.bind(that)}
              onClick={this.handleModalOpen}
-             aria-label="Remove highlight">
+             aria-label={formatMessage(messages.removeNoteText)}>
           </a>
           <Dialog
-            title="Confirm Delete?"
+            title={formatMessage(messages.confirmDelete)}
             actions={actions}
             modal={false}
             open={this.state.modalOpen}
             onRequestClose={this.handleModalClose}
             contentStyle={DialogStyle.dialogContainerstyl}>
-              <CancelIcon tabIndex="0" onClick={this.handleModalClose} viewBox="703 14 18 18.7" style={DialogStyle.cancelIcon} className="handleCloseIcon" onKeyDown={this.cancelIconKeySelect}/>
-              This action cannot be undone.
+              <CancelIcon tabIndex="0" onClick={this.handleModalClose} viewBox="703 14 18 18.7" style={DialogStyle.cancelIcon} 
+              aria-label={formatMessage(messages.close)} className="handleCloseIcon" onKeyDown={this.cancelIconKeySelect}/>
+              {formatMessage(messages.actionCannotBeUnDone)}
           </Dialog>
       </div>
     )

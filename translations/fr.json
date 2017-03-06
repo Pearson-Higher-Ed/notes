@@ -1,8 +1,15 @@
 {
   "title": "Mise en évidence et notes",
-  "emptyMessage": "Lorsque vous ajoutez des notes ou mettez du texte en évidence, ils sont affichés ici.",
+  "noNotesMsg": "Lorsque vous ajoutez des notes ou mettez du texte en évidence, ils sont affichés ici.",
   "showMore" : "montre plus",
   "showLess" : "montre moins",
   "highlighted" : "Mis en évidence : ",
-  "yourNote": "Votre note : "  
+  "yourNote": "Votre note : ",
+  "removeNoteText":"Supprimer la note",
+  "cancel": "Annuler",
+  "delete": "Effacer",
+  "confirmDelete": "Confirmation de la suppression?",
+  "actionCannotBeUnDone": "Cette action ne peut pas être annulée.",
+  "close": "Fermer"
+
 }

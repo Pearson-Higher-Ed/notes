@@ -1,8 +1,14 @@
 {
   "title": "Markeringen en notities",
-  "emptyMessage": "Wanneer u tekst markeert of notities toevoegt, verschijnen ze hier.",
+  "noNotesMsg": "Wanneer u tekst markeert of notities toevoegt, verschijnen ze hier.",
   "showMore" : "laat meer zien",
   "showLess" : "laat minder zien",
   "highlighted" : "Gemarkeerd: ",
-  "yourNote": "Uw notitie: "  
+  "yourNote": "Uw notitie: ",
+  "removeNoteText":"Verwijder note",
+  "cancel": "Annuleer",
+  "delete": "Verwijder",
+  "confirmDelete": "Bevestig verwijderen?",
+  "actionCannotBeUnDone": "Deze actie kan niet ongedaan gemaakt worden.",
+  "close": "Dichtbij"
 }

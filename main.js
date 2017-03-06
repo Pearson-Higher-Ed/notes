@@ -1,36 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { addLocaleData, IntlProvider } from 'react-intl';
-import frLocaleData from 'react-intl/locale-data/fr';
-import nlLocaleData from 'react-intl/locale-data/nl';
-import itLocaleData from 'react-intl/locale-data/it';
-import frJson from './translations/fr.json';
-import nlJson from './translations/nl.json';
-import itJson from './translations/it.json';
+import { IntlProvider } from 'react-intl';
 import './main.scss';
 import ComponentOwner from './src/js/component-owner';
-// import NoteList from './src/js/NoteList';
+import InternationalSupport from './src/js/InternationalSupport';
 
-const translations = {
-  'fr' : frJson,
-  'nl' : nlJson,
-  'it' : itJson
-};
-
-export default class NoteListComponent {    
+export default class NoteListDemo {    
   constructor(config) {
-    addLocaleData(frLocaleData);
-    addLocaleData(nlLocaleData);
-    addLocaleData(itLocaleData);
     this.init(config);
   }
   
   init(config) {
-    const locale = config.locale ? config.locale : 'en';
+    this.intlObj = new InternationalSupport(config.locale);
     
     ReactDOM.render(
-      <IntlProvider locale={locale} messages={translations[locale]}>
+      <IntlProvider locale={this.intlObj.getLocale()} messages={this.intlObj.getMessages()}>
         <ComponentOwner notes={config.notes} clickNoteHandler={config.clickNoteHandler}/>
       </IntlProvider>,
       document.getElementById(config.elementId)
@@ -38,7 +22,7 @@ export default class NoteListComponent {
   }
 }
 
-export NotesList from './src/js/NoteList';
+export NoteListComponent from './src/js/NoteListComponent';
 
 // Listen for client events to initialize a new Notes component
-document.body.addEventListener('o.InitNotes', e => new NoteListComponent(e.detail));
+document.body.addEventListener('o.InitNotes', e => new NoteListDemo(e.detail));

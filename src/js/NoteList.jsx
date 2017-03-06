@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
+import { intlShape, injectIntl } from 'react-intl';
 import Note from './Note';
+import { messages } from './defaultMessages';
 
-export default class NoteList extends Component {
+class NoteList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {notes: this.props.notes};
+    this.state = {
+      notes: this.props.notes
+    };
     this.noteClick = this.noteClick.bind(this);
     this.removeNote = this.removeNote.bind(this);    
   }
@@ -22,11 +26,11 @@ export default class NoteList extends Component {
     this.setState({notes: this.state.notes});
   }
 
-  renderEmpty() {
+  renderEmpty(formatMessage) {
     return (
       <div className="empty-help" >
          <div className="empty-message" tabIndex="0">
-             <p>When you highlight text or add notes, they will appear here.</p>
+             <p>{formatMessage(messages.noNotesMsg)}</p>
          </div>
       </div>
     )
@@ -47,16 +51,18 @@ export default class NoteList extends Component {
               time={note.time}
               removeNote={that.removeNote} 
               noteClick={that.noteClick}
-              drawerCallbacks = {that.props.drawerCallbacks} />
+              drawerCallbacks = {that.props.drawerCallbacks}
+              intl= {that.props.intl} />
       );
     });
   }
 
   render() {
+    const { formatMessage, formatDate, formatTime } = this.props.intl;
     return (
       <div id="notes" role="main">
           <div className="notes-body">
-              {(this.props.notes.length === 0) ? this.renderEmpty() : this.renderNotes()}
+              {(this.props.notes.length === 0) ? this.renderEmpty(formatMessage) : this.renderNotes(formatMessage, formatDate, formatTime)}
           </div>
           <div id="notes-assert-container" role="alert" aria-live="assertive" className="reader-only"></div>
       </div>
@@ -65,7 +71,11 @@ export default class NoteList extends Component {
 }
 
 NoteList.propTypes = {
+  intl: intlShape.isRequired,
+  locale: React.PropTypes.string,
   clickNoteHandler: React.PropTypes.func,
   removeNoteHandler: React.PropTypes.func,
   drawerCallbacks: React.PropTypes.object
 };
+
+export default injectIntl(NoteList);

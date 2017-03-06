@@ -1,0 +1,14 @@
+{
+  "title": "Highlights & Notes",
+  "noNotesMsg": "When you highlight text or add notes, they will appear here.",
+  "showMore" : "show more",
+  "showLess" : "show less",
+  "highlighted" : "Highlighted: ",
+  "yourNote": "Your Note: ",
+  "removeNoteText":"Remove note",
+  "cancel":"Cancel",
+  "delete": "Delete",
+  "confirmDelete": "Confirm Delete?",
+  "actionCannotBeUnDone": "This action cannot be undone.",
+  "close": "Close"
+}
