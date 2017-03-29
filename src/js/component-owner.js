@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { darkBlack, fullBlack } from 'material-ui/styles/colors';
 
-import NoteList from './NoteList';
+import { NoteListComponent } from './NoteListComponent';
 
 const muiTheme = getMuiTheme({
   palette: {    
@@ -28,7 +28,7 @@ class ComponentOwner extends React.Component {
   render() {    
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <NoteList notes={this.props.notes} clickNoteHandler={this.props.clickNoteHandler}/>
+        <NoteListComponent notes={this.props.notes} clickNoteHandler={this.props.clickNoteHandler} locale={this.props.intl.locale}/>
       </MuiThemeProvider>
     )
   }

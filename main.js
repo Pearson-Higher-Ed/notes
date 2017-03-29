@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import './main.scss';
 import ComponentOwner from './src/js/component-owner';
-import InternationalSupport from './src/js/InternationalSupport';
+import { InternationalSupport } from '@pearson-incubator/aquila-js-core';
+import msgObject from './translations';
 
 export default class NoteListDemo {    
   constructor(config) {
@@ -11,7 +12,7 @@ export default class NoteListDemo {
   }
   
   init(config) {
-    this.intlObj = new InternationalSupport(config.locale);
+    this.intlObj = new InternationalSupport(msgObject, config.locale);
     
     ReactDOM.render(
       <IntlProvider locale={this.intlObj.getLocale()} messages={this.intlObj.getMessages()}>

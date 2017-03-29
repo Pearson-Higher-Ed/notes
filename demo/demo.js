@@ -31,7 +31,7 @@ function init() {
                     {id: 5, author: 'Shandy Miller', time: 86400000, text: 'This is the fifth notes highlighted text', comment: 'This is the fifth from the instructor', color: 'Instructor'}];   
  
   const region = getParam('lang') || 'en';
-  addLocaleData(localeData[region]);
+  addLocaleData(localeData[region.split('-')[0]]);
   
   // Create new instance of notes component
   document.body.dispatchEvent(new CustomEvent('o.InitNotes', {
