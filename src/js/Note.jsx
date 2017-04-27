@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import SvgIcon from 'material-ui/SvgIcon';
+import { AnalyticsManager } from '@pearson-incubator/aquila-js-core';
 import { messages } from './defaultMessages';
 
 
@@ -31,6 +32,11 @@ export default class Note extends React.Component {
     const listDom = Array.from(document.getElementsByClassName('note-row'));
     listDom.map((node) => node.className = 'note-row');
     e.target.parentNode.classList.add('focused');
+    AnalyticsManager.dispatch({
+      category: 'Notes',
+      action: 'Click',
+      label: JSON.stringify({ PageId: pageId })
+    })
   }
   arrowKeyPress(e) {
     if (e.which === 37 || e.keyCode === 37 || e.which === 38 || e.keyCode === 38 || e.which === 39 || e.keyCode === 39 || e.which === 40 || e.keyCode === 40) { // down Arrow key
@@ -42,6 +48,11 @@ export default class Note extends React.Component {
   handleDeleteClick(noteId) {
     this.props.removeNote(noteId);
     this.handleModalClose();
+    AnalyticsManager.dispatch({
+      category: 'Notes',
+      action: 'Remove',
+      label: JSON.stringify({ NoteId: noteId })
+    })
   }
 
   renderIcon(commentExists) {
