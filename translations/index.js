@@ -1,7 +1,6 @@
 import enJson from './en.json';
 import frJson from './fr.json';
 import frCaJson from './fr-ca.json';
-import pseudoJson from './pseudo.json';
 
 /* eslint-disable quote-props */
 export default {
@@ -10,7 +9,6 @@ export default {
     'en-us': enJson,
     'fr': frJson,
     'fr-fr': frJson,
-    'fr-ca': frCaJson,
-    'ts': pseudoJson
+    'fr-ca': frCaJson
   }
 };

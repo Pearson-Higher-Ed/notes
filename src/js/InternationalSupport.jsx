@@ -1,12 +1,10 @@
 // language jsons
 import enJson from '../../translations/en.json';
 import frJson from '../../translations/fr.json';
-import tsJson from '../../translations/pseudo.json';
 
 const translations = {
   en: enJson,
-  fr: frJson,
-  ts: tsJson
+  fr: frJson
 };
 
 const localeProps = new WeakMap();
