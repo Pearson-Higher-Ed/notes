@@ -260,8 +260,8 @@ Note.propTypes = {
   color: PropTypes.string.isRequired,
   noteClick: PropTypes.func.isRequired,
   removeNote: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
-  pageId: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  pageId: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
   time: PropTypes.number.isRequired

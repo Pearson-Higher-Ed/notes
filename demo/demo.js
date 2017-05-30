@@ -23,8 +23,8 @@ function init() {
   // Mock data for notes component
   const mockData = [
     {
-      id: 1,
-      pageId: 1,
+      id: '1',
+      pageId: '1',
       author: 'Pete Hunt',
       time: 86400000,
       text: `This is the first note and its about two lines long ifdsfd sfdfdfdfd fda fd fdsf dsaf dsaf ds fdsa
@@ -34,8 +34,8 @@ function init() {
       color: 'Green'
     },
     {
-      id: 2,
-      pageId: 1,
+      id: '2',
+      pageId: '1',
       author: 'Bob Schumer',
       time: 86400000,
       text: `This is the second note feaw fea feaw fea fea fea fea feafef w afewaf e ewafeaw end highl fewa fewaf ewa 
@@ -49,8 +49,8 @@ function init() {
       color: 'Green'
     },
     {
-      id: 3,
-      pageId: 1,
+      id: '3',
+      pageId: '1',
       author: 'Jay Williams',
       time: 86400000,
       text: 'This is the third notes highlighted text',
@@ -63,8 +63,8 @@ function init() {
       color: 'Pink'
     },
     {
-      id: 4,
-      pageId: 1,
+      id: '4',
+      pageId: '1',
       author: 'Jordan Walke',
       time: 86400000,
       text: 'This is the fourth notes highlighted text',
@@ -72,8 +72,8 @@ function init() {
       color: 'Yellow'
     },
     {
-      id: 5,
-      pageId: 1,
+      id: '5',
+      pageId: '1',
       author: 'Shandy Miller',
       time: 86400000,
       text: 'This is the fifth notes highlighted text',
