@@ -15,27 +15,24 @@ class NoteList extends Component {
     this.removeNote = this.removeNote.bind(this);
   }
 
-  noteClick(pageId) {
-    this.props.clickNoteHandler(pageId);
-  }
+  noteClick = pageId => (
+    this.props.clickNoteHandler(pageId)
+  )
 
-  removeNote(noteId) {
+  removeNote = (noteId) => {
     this.props.removeNoteHandler(noteId);
-
     const removeNoteIndex = this.state.notes.findIndex(note => note.id === noteId);
     this.state.notes.splice(removeNoteIndex, 1);
     this.setState({ notes: this.state.notes });
   }
 
-  static renderEmpty(formatMessage) {
-    return (
-      <div className="empty-help" >
-        <div className="empty-message" tabIndex="0" role="link">
-          <p>{formatMessage(messages.noNotesMsg)}</p>
-        </div>
+  renderEmpty = formatMessage => (
+    <div className="empty-help" >
+      <div className="empty-message" tabIndex="0" role="link">
+        <p>{formatMessage(messages.noNotesMsg)}</p>
       </div>
-    );
-  }
+    </div>
+  )
 
   renderNotes() {
     return this.props.notes.map(note => (
