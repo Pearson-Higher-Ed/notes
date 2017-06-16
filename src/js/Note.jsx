@@ -109,17 +109,7 @@ export default class Note extends React.Component {
     e.target.parentNode.classList.add('focused');
     return true;
   }
-  onBlur(e) {
-    e.target.parentNode.className = 'note-row';
-    const currentNote = document.getElementsByClassName('note-row');
-    const lastElement = currentNote[currentNote.length - 1];
-    if (e.target.parentNode === lastElement) {
-      this.props.drawerCallbacks.onActive('contents');
-      this.props.drawerCallbacks.changeState(0);
-    }
-    return true;
-  }
-
+  
   dialogKeySelect = (event) => {
     if ((event.which === 9 || event.keyCode === 9) && !event.shiftKey) {
       document.getElementsByClassName('handleCloseIcon')[0].focus();
@@ -242,7 +232,6 @@ export default class Note extends React.Component {
           className="remove"
           tabIndex="0"
           role="link"
-          onBlur={e => that.onBlur(e)}
           onClick={this.handleModalOpen}
           aria-label={formatMessage(messages.removeNoteText)}
         >{''}</a>
