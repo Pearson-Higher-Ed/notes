@@ -197,7 +197,7 @@ export default class Note extends React.Component {
           onFocus={Note.onFocus}
           tabIndex="0"
           role="link"
-          onClick={e => this.handleNoteClick(this.props.pageId, e)}
+          onClick={e => this.handleNoteClick(this.props.pageId, this.props.id, e)}
           onKeyUp={e => this.arrowKeyPress(e)}
         >
           {this.renderIcon(commentExists)}

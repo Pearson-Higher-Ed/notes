@@ -58,8 +58,11 @@ ComponentOwner.propTypes = {
   intl: intlShape.isRequired,
   notes: PropTypes.array.isRequired,
   clickNoteHandler: PropTypes.func.isRequired,
-  drawerCallbacks: PropTypes.object.isRequired,
+  drawerCallbacks: PropTypes.object,
   removeNoteHandler: PropTypes.func.isRequired
+};
+ComponentOwner.defaultProps = {
+  drawerCallbacks: {}
 };
 
 export default injectIntl(ComponentOwner); // Inject this.props.intl into the component context
