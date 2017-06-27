@@ -1,6 +1,6 @@
 {
   "name": "@pearson-incubator/notes",
-  "version": "0.1.32",
+  "version": "0.1.33",
   "description": "Annotations component rendering user notes/highlights of a book",
   "main": "./main.js",
   "scripts": {
