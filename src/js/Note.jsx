@@ -47,8 +47,8 @@ export default class Note extends React.Component {
     }
   };
 
-  handleNoteClick(pageId, e) {
-    this.props.noteClick(pageId);
+  handleNoteClick(pageId, annId, e) {
+    this.props.noteClick(pageId, annId);
     const listDom = Array.from(document.getElementsByClassName('note-row'));
     listDom.map(node => node.setAttribute('class', 'note-row'));
     e.target.parentNode.classList.add('focused');
@@ -197,7 +197,7 @@ export default class Note extends React.Component {
           onFocus={Note.onFocus}
           tabIndex="0"
           role="link"
-          onClick={e => this.handleNoteClick(this.props.pageId, e)}
+          onClick={e => this.handleNoteClick(this.props.pageId, this.props.id, e)}
           onKeyUp={e => this.arrowKeyPress(e)}
         >
           {this.renderIcon(commentExists)}

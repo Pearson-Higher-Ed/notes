@@ -29,8 +29,8 @@ class NoteList extends Component {
     this.removeNote = this.removeNote.bind(this);
   }
 
-  noteClick = pageId => (
-    this.props.clickNoteHandler(pageId)
+  noteClick = (pageId, annId) => (
+    this.props.clickNoteHandler(pageId, annId)
   )
 
   removeNote = (noteId) => {
@@ -87,7 +87,10 @@ NoteList.propTypes = {
   notes: PropTypes.array.isRequired,
   clickNoteHandler: PropTypes.func.isRequired,
   removeNoteHandler: PropTypes.func.isRequired,
-  drawerCallbacks: PropTypes.object.isRequired
+  drawerCallbacks: PropTypes.object
+};
+NoteList.defaultProps = {
+  drawerCallbacks: {}
 };
 
 export default injectIntl(NoteList);
