@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="note-row"
+>
+  <a
+    className="note-link"
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyUp={[Function]}
+    role="link"
+    tabIndex="0"
+  >
+    <span
+      className="undefined color-dot"
+    >
+      <span
+        className="reader-only"
+      >
+         Highlight
+      </span>
+    </span>
+    <div
+      className="note-content"
+    >
+      <div>
+        <p
+          className="dotdotdot"
+        >
+          <strong />
+        </p>
+      </div>
+      <div
+        className="hide"
+      >
+        <p
+          className="user-note"
+        />
+      </div>
+      <span
+        className="note-date"
+      >
+        <time
+          value={undefined}
+        >
+          Invalid Date
+        </time>
+         
+        <time
+          value={undefined}
+        >
+          Invalid Date
+        </time>
+      </span>
+    </div>
+  </a>
+  <a
+    aria-label="Remove note"
+    className="remove"
+    onClick={[Function]}
+    role="link"
+    tabIndex="0"
+  >
+    
+  </a>
+</div>
+`;
+
+exports[`renders the Note List 1`] = `
+<div
+  className="note-row"
+>
+  <a
+    className="note-link"
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyUp={[Function]}
+    role="link"
+    tabIndex="0"
+  >
+    <i
+      className="{note.color}-icon color-icon"
+    >
+      <span
+        className="reader-only"
+      >
+        {note.color}
+         Highlight
+      </span>
+    </i>
+    <div
+      className="note-content"
+    >
+      <div>
+        <p
+          className="dotdotdot"
+        >
+          <strong>
+            {note.text}
+          </strong>
+        </p>
+      </div>
+      <div
+        className=""
+      >
+        <p
+          className="user-note"
+        >
+          {note.comment}
+        </p>
+      </div>
+      <span
+        className="note-date"
+      >
+        <time
+          value="{note.time}"
+        >
+          Invalid Date
+        </time>
+         
+        <time
+          value="{note.time}"
+        >
+          Invalid Date
+        </time>
+      </span>
+    </div>
+  </a>
+  <a
+    aria-label="Remove note"
+    className="remove"
+    onClick={[Function]}
+    role="link"
+    tabIndex="0"
+  >
+    
+  </a>
+</div>
+`;
+
+exports[`renders the Note List 2`] = `
+<div
+  className="note-row"
+>
+  <a
+    className="note-link"
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyUp={[Function]}
+    role="link"
+    tabIndex="0"
+  >
+    <span
+      className="undefined color-dot"
+    >
+      <span
+        className="reader-only"
+      >
+         Highlight
+      </span>
+    </span>
+    <div
+      className="note-content"
+    >
+      <div>
+        <p
+          className="dotdotdot"
+        >
+          <strong />
+        </p>
+      </div>
+      <div
+        className="hide"
+      >
+        <p
+          className="user-note"
+        />
+      </div>
+      <span
+        className="note-date"
+      >
+        <time
+          value={undefined}
+        >
+          Invalid Date
+        </time>
+         
+        <time
+          value={undefined}
+        >
+          Invalid Date
+        </time>
+      </span>
+    </div>
+  </a>
+  <a
+    aria-label="Remove note"
+    className="remove"
+    onClick={[Function]}
+    role="link"
+    tabIndex="0"
+  >
+    
+  </a>
+</div>
+`;
