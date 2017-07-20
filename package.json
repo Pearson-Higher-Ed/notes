@@ -1,6 +1,6 @@
 {
   "name": "@pearson-incubator/notes",
-  "version": "0.1.34",
+  "version": "0.1.35",
   "description": "Annotations component rendering user notes/highlights of a book",
   "main": "./main.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],
-    "coveragePathIgnorePatterns" : [
+    "coveragePathIgnorePatterns": [
       "src/js/InternationalSupport.jsx",
       "src/js/Note.jsx"
     ],
@@ -42,9 +42,7 @@
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": [
-      
-    ],
+    "transformIgnorePatterns": [],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     }
