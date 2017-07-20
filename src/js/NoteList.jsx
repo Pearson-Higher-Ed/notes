@@ -49,22 +49,24 @@ class NoteList extends Component {
   )
 
   renderNotes() {
-    return this.props.notes.map(note => (
-      <Note
-        key={note.id}
-        id={note.id}
-        author={note.author}
-        pageId={note.pageId}
-        color={note.color}
-        comment={note.comment}
-        text={note.text}
-        time={note.time}
-        removeNote={this.removeNote}
-        noteClick={this.noteClick}
-        drawerCallbacks={this.props.drawerCallbacks}
-        intl={this.props.intl}
-      />
+    if (this.props.notes) {
+      return this.props.notes.map(note => (
+        <Note
+          key={note.id}
+          id={note.id}
+          author={note.author}
+          pageId={note.pageId}
+          color={note.color}
+          comment={note.comment}
+          text={note.text}
+          time={note.time}
+          removeNote={this.removeNote}
+          noteClick={this.noteClick}
+          intl={this.props.intl}
+        />
       ));
+    }
+    return true;
   }
 
   render() {
@@ -72,7 +74,7 @@ class NoteList extends Component {
     return (
       <div id="notes" role="main">
         <div className="notes-body">
-          {(this.props.notes.length === 0) ?
+          {(this.props.notes !== undefined && this.props.notes.length === 0) ?
             this.renderEmpty(formatMessage) :
             this.renderNotes(formatMessage, formatDate, formatTime)}
         </div>
@@ -86,11 +88,7 @@ NoteList.propTypes = {
   intl: intlShape.isRequired,
   notes: PropTypes.array.isRequired,
   clickNoteHandler: PropTypes.func.isRequired,
-  removeNoteHandler: PropTypes.func.isRequired,
-  drawerCallbacks: PropTypes.object
-};
-NoteList.defaultProps = {
-  drawerCallbacks: {}
+  removeNoteHandler: PropTypes.func.isRequired
 };
 
 export default injectIntl(NoteList);

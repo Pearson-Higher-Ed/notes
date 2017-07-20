@@ -18,10 +18,11 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import SvgIcon from 'material-ui/SvgIcon';
 import { AnalyticsManager } from '@pearson-incubator/aquila-js-core';
+import { injectIntl } from 'react-intl';
 import { messages } from './defaultMessages';
 
 
-export default class Note extends React.Component {
+class Note extends React.Component {
   constructor(props) {
     super(props);
 
@@ -105,11 +106,12 @@ export default class Note extends React.Component {
       </span>
     );
   }
+
   static onFocus(e) {
     e.target.parentNode.classList.add('focused');
     return true;
   }
-  
+
   dialogKeySelect = (event) => {
     if ((event.which === 9 || event.keyCode === 9) && !event.shiftKey) {
       document.getElementsByClassName('handleCloseIcon')[0].focus();
@@ -259,7 +261,6 @@ export default class Note extends React.Component {
   }
 }
 Note.propTypes = {
-  drawerCallbacks: PropTypes.object.isRequired,
   color: PropTypes.string.isRequired,
   noteClick: PropTypes.func.isRequired,
   removeNote: PropTypes.func.isRequired,
@@ -269,3 +270,5 @@ Note.propTypes = {
   comment: PropTypes.string.isRequired,
   time: PropTypes.number.isRequired
 };
+
+export default injectIntl(Note);

@@ -14,7 +14,7 @@ PEARSON PROPRIETARY AND CONFIDENTIAL INFORMATION SUBJECT TO NDA
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { intlShape, injectIntl } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { darkBlack, fullBlack } from 'material-ui/styles/colors';
@@ -40,7 +40,6 @@ class ComponentOwner extends React.Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <NoteListComponent
           notes={this.props.notes}
-          drawerCallbacks={this.props.drawerCallbacks}
           clickNoteHandler={this.props.clickNoteHandler}
           removeNoteHandler={this.props.removeNoteHandler}
           locale={this.props.intl.locale}
@@ -55,14 +54,11 @@ ComponentOwner.childContextTypes = {
 };
 
 ComponentOwner.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   notes: PropTypes.array.isRequired,
   clickNoteHandler: PropTypes.func.isRequired,
-  drawerCallbacks: PropTypes.object,
   removeNoteHandler: PropTypes.func.isRequired
 };
-ComponentOwner.defaultProps = {
-  drawerCallbacks: {}
-};
+
 
 export default injectIntl(ComponentOwner); // Inject this.props.intl into the component context

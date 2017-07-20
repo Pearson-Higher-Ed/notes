@@ -8,7 +8,7 @@
     "dev-intl": "npm run dev-setup && npm run pseudoloc && webpack-dev-server --port 8081 --devtool source-map --hot --progress --colors",
     "dev": "npm run dev-setup && webpack-dev-server --port 8081 --devtool source-map --hot --progress --colors",
     "pretest": "npm run lint",
-    "test": "mocha --compilers js:babel-register --require babel-polyfill --require intl --require test/utils/dom.js",
+    "test": "node scripts/test.js --env=jsdom",
     "build": "webpack -p",
     "lint": "eslint src/js/** main.js demo/demo.js",
     "gen-changelog": "node ./npm_scripts/gen-changelog.js",
@@ -19,6 +19,44 @@
     "prebuild": "npm run pseudoloc",
     "pseudoloc": "./node_modules/pseudoloc/bin/pseudoloc --readFile ./translations/en.json --writeFile ./translations/pseudo.json"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "coveragePathIgnorePatterns" : [
+      "src/js/InternationalSupport.jsx",
+      "src/js/Note.jsx"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.js?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).js?(x)",
+      "<rootDir>/test/**/*.js?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    }
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "author": "Johnson Nguyen",
   "license": "PEARSON PROPRIETARY AND CONFIDENTIAL INFORMATION SUBJECT TO NDA",
   "repository": {
@@ -27,12 +65,14 @@
   },
   "dependencies": {
     "react-intl": "~2.0.1",
-    "@pearson-incubator/aquila-js-core": "^0.2.32"
+    "@pearson-incubator/aquila-js-core": "^0.2.32",
+    "react-test-renderer": "^15.5.4"
   },
   "devDependencies": {
     "@pearson-components/npm-scripts": "^0.1.0",
     "babel-core": "~6.3.17",
     "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
     "babel-loader": "~6.2.0",
     "babel-polyfill": "~6.7.4",
     "babel-preset-es2015": "~6.3.13",
@@ -52,6 +92,7 @@
     "expect-jsx": "~2.5.1",
     "file-loader": "~0.8.5",
     "intl": "~1.1.0",
+    "jest": "^20.0.4",
     "jsdom": "~8.5.0",
     "json-loader": "~0.5.4",
     "material-ui": "^0.16.1",

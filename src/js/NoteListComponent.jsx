@@ -26,9 +26,7 @@ export const NoteListComponent = function NoteListComponent(paramsObj) { // esli
         notes={paramsObj.notes}
         clickNoteHandler={paramsObj.clickNoteHandler}
         removeNoteHandler={paramsObj.removeNoteHandler}
-        drawerCallbacks={paramsObj.drawerCallbacks}
       />
     </IntlProvider>
   );
 };
-

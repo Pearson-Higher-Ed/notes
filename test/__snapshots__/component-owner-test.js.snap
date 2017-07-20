@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component correctly 1`] = `
+<div
+  id="notes"
+  role="main"
+>
+  <div
+    className="notes-body"
+  />
+  <div
+    aria-live="assertive"
+    className="reader-only"
+    id="notes-assert-container"
+    role="alert"
+  />
+</div>
+`;
