@@ -28,7 +28,7 @@ export default class NoteListDemo {
   }
 }
 
-export NoteListComponent from './src/js/NoteListComponent';
+export { NoteListComponent } from './src/js/NoteListComponent';
 
 // Listen for client events to initialize a new Notes component
 document.body.addEventListener('o.InitNotes', e => new NoteListDemo(e.detail));
