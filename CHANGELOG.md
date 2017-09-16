@@ -1,20 +1,5 @@
-<a name="0.1.37"></a>
-## [0.1.37](https://github.com/Pearson-Higher-Ed/compare/v0.1.36...v0.1.37) (2017-07-20)
-
-
-
-<a name="0.1.36"></a>
-## [0.1.36](https://github.com/Pearson-Higher-Ed/compare/v0.1.35...v0.1.36) (2017-07-20)
-
-
-
-<a name="0.1.35"></a>
-## [0.1.35](https://github.com/Pearson-Higher-Ed/compare/v0.1.34...v0.1.35) (2017-07-20)
-
-
-
-<a name="0.1.34"></a>
-## [0.1.34](https://github.com/Pearson-Higher-Ed/compare/896ea18...v0.1.34) (2017-06-29)
+<a name="0.1.38"></a>
+## 0.1.38 (2017-09-16)
 
 
 ### Bug Fixes
@@ -23,7 +8,7 @@
 * Add Intl.js polyfill for Safari and update READMEs on polyfill service. ([54cb581](https://github.com/Pearson-Higher-Ed/commit/54cb581))
 * Enable source maps for webpack dev server. ([e13cd6b](https://github.com/Pearson-Higher-Ed/commit/e13cd6b))
 * Reference release script in npm_scripts, and lint demo script. ([896ea18](https://github.com/Pearson-Higher-Ed/commit/896ea18))
-* Use verify npm script to ensure package name has [@pearson](https://github.com/pearson)-components scope. ([772586f](https://github.com/Pearson-Higher-Ed/commit/772586f))
+* Use verify npm script to ensure package name has [@pearson-components](https://github.com/pearson-components) scope. ([772586f](https://github.com/Pearson-Higher-Ed/commit/772586f))
 
 
 ### Features
