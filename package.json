@@ -57,10 +57,10 @@
     "url": "https://github.com/Pearson-Higher-Ed/"
   },
   "dependencies": {
-    "@pearson-incubator/aquila-js-core": "^0.2.32",
     "react-test-renderer": "^15.5.4"
   },
   "devDependencies": {
+    "@pearson-incubator/aquila-js-core": "^0.2.92",
     "@pearson-components/npm-scripts": "^0.1.0",
     "babel-core": "~6.3.17",
     "babel-eslint": "^7.2.3",
@@ -106,6 +106,7 @@
     "webpack-dev-server": "~1.14.0"
   },
   "peerDependencies": {
+    "@pearson-incubator/aquila-js-core": "^0.2.92",
     "material-ui": "^0.16.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
